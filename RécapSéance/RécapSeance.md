@@ -27,4 +27,13 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Graphe Pert commencé (GraphePERT)    
 - Commencement des vues de notre application (sketch) : pas encore sur le git 
 - Ajout des tâches à faire sur le Git
-   
+ 
+#### Séance du 04/10/2022: <br>
+- Ajout de'un fichier : prévision des côuts du projet
+- Langages de progammation choisis (voir dans le wiki : Choix des langages)
+- Sketchs commencés 
+
+
+
+
+
