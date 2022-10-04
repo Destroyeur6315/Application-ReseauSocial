@@ -7,3 +7,12 @@ Seance du 19/07/2022: <br>
     -> langages utilisés : HTML/CSS/JAVASCRIPT (+ php/react)  <br>
     -> Google docs : modification de certaines choses (Description des livrables, nomination du chef de projet...) <br>
 
+Séance du 03/10/2022: <br>
+    -> Avancement du tableau (Pert.ods) avec l'ajout de la durée des tâches et leurs antécédents respectfifs <br>
+    -> Graphe Pert commencé (GraphePERT)    
+    -> Commencement des vues de notre application (sketch) : pas encore sur le git 
+    -> Ajout des tâches à faire sur le Git
+   
+   
+   
+                                                                                                               
