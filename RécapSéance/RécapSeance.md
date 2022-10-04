@@ -29,9 +29,11 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Ajout des tâches à faire sur le Git
  
 #### Séance du 04/10/2022: <br>
-- Ajout de'un fichier : prévision des côuts du projet
+- Ajout d'un fichier : prévision des côuts du projet et suivi de qualité
+- Gantt commencé + chemin critique trouvé
 - Langages de progammation choisis (voir dans le wiki : Choix des langages)
-- Sketchs commencés 
+- Sketchs commencés (pour la vue sur PC et sur téléphone)
+- Prise en main de figma pour réaliser des sketchs 
 
 
 
