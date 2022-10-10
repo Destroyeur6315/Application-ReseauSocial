@@ -48,5 +48,10 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Sketch toujours en cours
 - Modification du tableau (tâches précédentes...)
 
-
+#### Séance du 10/10/2022 :
+- Continuation des maquettes
+- Programmation commencé : front-end avec HTML/CSS
+- PHP : apprends les bases du langage
+- Commence à s'interesser aux API REST
+- Scénarii commencés
 
