@@ -62,17 +62,63 @@ nav{
 
 #contact{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
     border: solid;
     border-color: brown;
     border-width: 5px;
-    align-self: flex-start;
+    align-self: center;
     flex: 1;
 }
 
-#profilautre{
+#listecontact{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    flex: 1;
+    background-color: blue;
+}
+
+#conv{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    flex: 1;
+    background-color: green;
+
+}
+#imgprofil{
     display: flex;
     background-color: red;
+}
+
+#likecomment{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: red;
+}
+
+#public{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+#com{
+    display: flex;
+    flex: 2;
+}
+
+#envoi{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+#conversation{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 #l1{
