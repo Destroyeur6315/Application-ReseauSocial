@@ -43,3 +43,25 @@ switch (firstUser.accountLevel) {
     } catch (error) {
     // reaction aux erreurs ici
     }
+
+
+// Evenement click
+
+let elt= document.getElementById("parent");
+let pcount= document.getElementById("parent-count");
+let i=0;
+let elt2=document.getElementById("child");
+let ecount=document.getElementById("child-count");
+let i2=0;
+
+elt.addEventListener('click', function() {
+  i=i+1;
+  pcount.innerHTML=i;
+});
+
+elt2.addEventListener('click', function(event) {
+  i2=i2+1;
+  ecount.innerHTML=i2;
+  event.preventDefault();
+  event.stopPropagation();
+});
