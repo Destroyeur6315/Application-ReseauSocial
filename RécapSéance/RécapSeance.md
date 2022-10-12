@@ -58,3 +58,16 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Scénarii commencés
 - Changement d'avis sur les technos du back-end : Principalement en javascript le back-end et le front-end (*PHP pourra être utilisé en cas de problème*)
 
+***
+
+#### Séance du 12/10/2022 :
+- Continuation et ajout sur le git du front-end (HTML/CSS)
+- Crétion de branches sur git
+- Prise en main de javascript 
+- Prise en main de Postman (utilisation des API public et d'une API privé avec authentification token)
+
+
+
+
+
+
