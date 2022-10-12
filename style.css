@@ -1,0 +1,82 @@
+body{
+    display: flex;
+    flex-direction: column;
+    border-color: green;
+    border: solid;
+    border-width: 5px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    border-color: green;
+    border: solid;
+    border-width: 5px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border: solid;
+    border-color: red;
+    border-width: 5px;
+    position: fixed;
+    box-shadow: 4px 4px white;
+    align-self: flex-end;
+}
+#search{
+    display: flex;
+    flex-direction: row;
+    border-color: aquamarine;
+    align-self: center;
+    border-width: 5px;
+    position: fixed;
+    align-content: center;
+}
+
+#titre{
+    display: flex;
+    flex-direction: row;
+    border-color: blue;
+    border-width: 5px;
+    align-content: center;
+}
+
+#div1{
+    display: flex;
+    flex-direction: row;
+    border: solid;
+    border-color: magenta;
+    border-right: 5px;
+    flex: 1;
+}
+#publication{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-color: blueviolet;
+    border-width: 5px;
+    align-self: flex-end;
+    flex: 1;
+}
+
+#contact{
+    display: flex;
+    flex-direction: column-reverse;
+    border: solid;
+    border-color: brown;
+    border-width: 5px;
+    align-self: flex-start;
+    flex: 1;
+}
+
+#l1{
+    display: flex;
+    flex-direction: row;
+}
+ul.sous{
+	display:none;
+	}
+li.deroulant:hover ul.sous{
+	display:block;
+	}
