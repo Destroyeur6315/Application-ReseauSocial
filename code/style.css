@@ -1,18 +1,17 @@
 body{
     display: flex;
     flex-direction: column;
-    border-color: green;
     border: solid;
     border-width: 5px;
+    flex:1;
 }
 
 header{
     display: flex;
     flex-direction: column;
-    border-color: green;
-    border: solid;
-    border-width: 5px;
+    flex: 1;
 }
+
 nav{
     display: flex;
     flex-direction: row;
@@ -21,9 +20,9 @@ nav{
     border-color: red;
     border-width: 5px;
     position: fixed;
-    box-shadow: 4px 4px white;
     align-self: flex-end;
 }
+
 #search{
     display: flex;
     flex-direction: row;
@@ -33,6 +32,7 @@ nav{
     position: fixed;
     align-content: center;
 }
+
 
 #titre{
     display: flex;
@@ -44,12 +44,11 @@ nav{
 
 #div1{
     display: flex;
-    flex-direction: row;
     border: solid;
     border-color: magenta;
-    border-right: 5px;
     flex: 1;
 }
+
 #publication{
     display: flex;
     flex-direction: column;
@@ -60,32 +59,20 @@ nav{
     flex: 1;
 }
 
-#contact{
-    display: flex;
-    flex-direction: row;
-    border: solid;
-    border-color: brown;
-    border-width: 5px;
-    align-self: center;
-    flex: 1;
-}
-
 #listecontact{
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
     flex: 1;
-    background-color: blue;
+    background-color: aqua;
 }
 
 #conv{
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
     flex: 1;
-    background-color: green;
-
+    background-color: crimson;
 }
+
 #imgprofil{
     display: flex;
     background-color: red;
@@ -102,6 +89,11 @@ nav{
     display: flex;
     flex-direction: row;
     flex: 1;
+}
+
+#message{
+    display: flex;
+    flex-direction: column;
 }
 
 #com{
@@ -125,9 +117,11 @@ nav{
     display: flex;
     flex-direction: row;
 }
+
 ul.sous{
 	display:none;
 	}
+    
 li.deroulant:hover ul.sous{
 	display:block;
 	}
