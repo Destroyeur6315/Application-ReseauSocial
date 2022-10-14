@@ -67,6 +67,12 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Prise en main de Postman (utilisation des API public et d'une API privé avec authentification token)
 
 
+***
+
+#### Séance du 13/10/2022 et 14/10/2022 :
+- Prise en main de javascript pour 2 personnes du groupe
+- Front-end en progression (que HTML/CSS)
+- API en cours d'apprentissage 
 
 
 
