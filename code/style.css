@@ -58,14 +58,14 @@ nav{
     display: flex;
     flex-direction: column;
     flex: 0.5;
-    background-color: aqua;
+    background-color: rgb(55, 52, 52);
 }
 
 #conv{
     display: flex;
     flex-direction: column;
     flex: 0.5;
-    background-color: crimson;
+    background-color: rgb(55, 52, 52);
 }
 
 #imgprofil{
@@ -127,6 +127,12 @@ li.deroulant:hover ul.sous{
 
 li.contact{
     border: solid;
+    background-color: lightgray;
+}
+
+li.message{
+    border: solid;
+    background-color: darkgray;
 }
 
 ul{

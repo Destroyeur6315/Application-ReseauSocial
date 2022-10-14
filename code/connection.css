@@ -1,0 +1,23 @@
+.bloc{
+    position: static;
+    background-color: bisque;
+    margin-top: 10%;
+    margin-right: 66%;
+    margin-left: 33%;
+    width: 33%;
+}
+
+#ident{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#psd{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#connexion{
+    margin-top: 50px;
+}
