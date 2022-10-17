@@ -41,29 +41,26 @@ nav{
     align-content: center;
 }
 
-#div1{
+#main{
     display: flex;
     flex: 1;
 }
 
-#publication{
-    display: flex;
-    flex-direction: column;
-    background-color: lightgrey;
-    align-self: flex-end;
-    flex: 1;
-}
-
-#imgprofil{
-    display: flex;
-    background-color: red;
-}
-
-#likecomment{
+#filter{
     display: flex;
     flex-direction: row;
+    background-color: rgb(60, 60, 60);
     flex: 1;
-    background-color: red;
+}
+
+#faq{
+    display: flex;
+    background-color: lightgrey;
+    flex: 1;
+}
+
+ul{
+    list-style-type: none;
 }
 
 ul.sous{
@@ -78,29 +75,4 @@ li.deroulant:hover ul.sous{
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    }
-
-#profil{
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    border: solid;
-    justify-content:flex-start;
-    flex: 1;
-}
-
-#presentation{
-    display: flex;
-    flex-direction: row;
-}
-
-#pseudo{
-    display: flex;
-    align-self: flex-start;
-}
-
-#bio{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
 }
