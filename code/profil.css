@@ -1,0 +1,109 @@
+body{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-width: 5px;
+    flex:1;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    flex: 1;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: fixed;
+    align-self: flex-end;
+}
+
+#search{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    align-self: center;
+    border-color: black;
+    border-width: 4px;
+    position: fixed;
+    align-content: center;
+}
+
+
+#titre{
+    display: flex;
+    flex-direction: row;
+    border-color: blue;
+    border-width: 5px;
+    align-content: center;
+}
+
+#div1{
+    display: flex;
+    flex: 1;
+}
+
+#publication{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    align-self: flex-end;
+    flex: 1;
+}
+
+#imgprofil{
+    display: flex;
+    background-color: red;
+}
+
+#likecomment{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: red;
+}
+
+ul.sous{
+	display:none;
+	}
+    
+li.deroulant:hover ul.sous{
+	display:block;
+	}
+
+#ul1{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    }
+
+#profil{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    border: solid;
+    justify-content:flex-start;
+    flex: 1;
+}
+
+#presentation{
+    display: flex;
+    flex-direction: row;
+    border: solid;
+    border-color: red;
+    border-width: 10px;
+}
+
+#pseudo{
+    display: flex;
+    align-self: flex-start;
+}
+
+#bio{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
