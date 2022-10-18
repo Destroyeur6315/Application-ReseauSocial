@@ -10,7 +10,7 @@ body{
 	display: flex;
 	height: 800px;
 	width: 100%;
-    flex-direction: row;
+    flex-direction: column;
 	justify-content: center;
     align-items: center;
 }
@@ -81,5 +81,16 @@ button:hover {
     width: 27%;
   }
 
+/**
+ Le lien pour aller sur une page connexion
+*/
+#connexion{
+    font-size: 20px;
+    margin-top: 15px;
+}
 
+a:hover{
+    color: white;
+    text-decoration: none;
+}
 
