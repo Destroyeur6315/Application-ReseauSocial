@@ -2,7 +2,7 @@
 Style de la page Connection
 */
 body{
-    background-image: url('Img/backgroundConnection.jpg');
+    background-image: url('../Img/backgroundConnection.jpg');
 }
 
 #conteneur
