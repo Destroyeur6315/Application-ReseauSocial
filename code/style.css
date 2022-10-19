@@ -67,6 +67,7 @@ nav{
     display: block;
     flex-direction: column-reverse;
     align-self: flex-end;
+    justify-content: space-around;
     flex: 0.5;
 
 }
@@ -85,6 +86,7 @@ nav{
 
 #mess{
     background-color: rgb(55, 52, 52);
+
 }
 
 #public{
