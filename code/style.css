@@ -14,17 +14,16 @@ header{
 }
 
 nav{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    position: fixed;
+    display: block;
+    position:fixed;
+    align-content: center;
     align-self: flex-end;
 }
 
 #search{
     display: flex;
     flex-direction: row;
-    background-color: grey;
+    background-color: white;
     align-self: center;
     border-color: black;
     border-width: 4px;
@@ -43,6 +42,7 @@ nav{
 
 #div1{
     display: flex;
+    background-color: rgb(52, 52, 52);
     flex: 1;
 }
 
@@ -57,15 +57,18 @@ nav{
 #listecontact{
     display: flex;
     flex-direction: column;
+    border-right: solid;
+    border-right-color: grey;
+    border-right-width: 10px;
     flex: 0.5;
-    background-color: rgb(55, 52, 52);
 }
 
 #conv{
-    display: flex;
-    flex-direction: column;
+    display: block;
+    flex-direction: column-reverse;
+    align-self: flex-end;
     flex: 0.5;
-    background-color: rgb(55, 52, 52);
+
 }
 
 #imgprofil{
@@ -80,22 +83,24 @@ nav{
     background-color: red;
 }
 
+#mess{
+    background-color: rgb(55, 52, 52);
+}
+
 #public{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+    display: block;
+    height: 370px;
 }
 
 #message{
     display: block;
     position: relative;
-    left: 85%;
-    
+    align-self: right;    
 }
 
 #com{
-    display: flex;
-    flex: 2;
+    display: block;
+    height: 300px;
 }
 
 #envoi{
