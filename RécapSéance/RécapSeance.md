@@ -83,7 +83,15 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Explication de l'ensemble des technos (Bientôt sur le wiki)
 - Mise en place d'une réunion avec l'équipe de développeur le 20/10/2022
 
+***
 
+#### Séance du 20/10/2022
+- MCD fini et transcrit en MLD
+- Sketchs en cours 
+- Diagramme de cas d'utilisation commencé
+- Partie front-end en cours
+- Rapport de Gestion de projet commencé
+- Partie back en apprentissage
 
 
 
