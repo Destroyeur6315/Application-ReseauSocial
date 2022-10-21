@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(238, 238, 238, 0.914);
+}
+
+/* nav */
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
+    top: 0;
+    background-color: #fff;
+    margin: 0;
+    box-shadow: 12px 1px 5px grey;
+    color: black;
+}
+
+#onglets a{
+    color: black;
+    padding: 0.2em;
+    font-size: 2.2em;
+}
+
+#onglets{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* Section */
+
+/***** partie gauche *****/
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#container_publication{
+    width: 50%;
+    padding-right: 2em;
+    border-right: 2px solid rgb(173, 173, 173);
+}
+
+.publication{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 2em;
+    padding: 1em;
+    margin: 1em;
+}
+
+.publication .profil img{
+    height: 5em;
+    width: 5em;
+    padding-top: 10%;
+}
+
+.message_interaction{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.message_interaction .onglets i{
+    font-size: xx-large;
+}
+
+.message_interaction .onglets img{
+    height: 2em;
+    width: 2em;
+}
+
+.profil{
+    padding: 1em;
+}
+
+#container_profil{
+    width: 40%;
+    padding-right: 2em;
+    border-right: 2px solid rgb(173, 173, 173);
+}
+
+.profil{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 2em;
+    padding: 1em;
+    margin: 1em;
+    
+}
+.profil img{
+    align-self: left;
+    width: 5em;
+    height: 5em;
+}
+
+#profil_texte{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 1em;
+    margin: 1em;
+    border-bottom: 1px;
+    border-color: black;
+    border-bottom: solid;
+
+}
+
+#profil_description{
+
+}
