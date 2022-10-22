@@ -67,12 +67,31 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Prise en main de Postman (utilisation des API public et d'une API privé avec authentification token)
 
 
-***
-
-#### Séance du 13/10/2022 et 14/10/2022 :
+#### Séance du 13/10/2022 et 14/10/2022
 - Prise en main de javascript pour 2 personnes du groupe
 - Front-end en progression (que HTML/CSS)
 - API en cours d'apprentissage 
+
+=======
+***
+
+#### Avancement du projet le 18/10/2022 
+- Avancement de la partie Front-end (page inscription, connexion, accueil, faq)
+- Prise en main de Node.js et Express
+- MCD commencé
+- Documentation pour la soutenance en cours (Diapo + word)
+- Explication de l'ensemble des technos (Bientôt sur le wiki)
+- Mise en place d'une réunion avec l'équipe de développeur le 20/10/2022
+
+***
+
+#### Séance du 20/10/2022
+- MCD fini et transcrit en MLD
+- Sketchs en cours 
+- Diagramme de cas d'utilisation commencé
+- Partie front-end en cours
+- Rapport de Gestion de projet commencé
+- Partie back en apprentissage
 
 
 
