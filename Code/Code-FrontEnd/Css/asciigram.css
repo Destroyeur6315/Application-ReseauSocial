@@ -1,8 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    /**background-color: rgba(238, 238, 238, 0.914);*/
-    background-image: url('../Img/backgroundConnection.jpg');
+    background-color: rgba(238, 238, 238, 0.914);
 }
 
 /* nav */
