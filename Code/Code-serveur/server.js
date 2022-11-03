@@ -1,18 +1,19 @@
 // Imports
 var express = require('express');
-var connexionBDD = require('./connection');
+var connexionBDD = require('./CreerTables');
+var gererForumulaire = require('./GérerFormulaire');
 var bodyParser = require("body-parser");
+const mysql = require('mysql');
 
 
-// Varibale pour données du formulaire
-var nomFormulaire = "";
+// Variable 
+let idUser = 0;
 
 // Instancier le serveur
 var serveur = express();
 
-// utilise le module de parsing
+// Utiliser le module de parsing
 serveur.use(bodyParser.urlencoded({ extended: true }));
-
 
 // Configurer les routes
 serveur.get('/inscription.html', function (req, res) {
@@ -23,19 +24,25 @@ serveur.get('/inscription.html', function (req, res) {
 
 serveur.post('/inscription.html', function(req, res) {
     nomFormulaire = req.body.name;
+    motDePasseFormulaire = req.body.pass;
+    emailFormulaire = req.body.email;
+    numTelFormulaire = req.body.numTel;
     console.log("test =" + nomFormulaire);
-    
-    traiter(nomFormulaire);
+
+    traiter();
 });
 
-// lancer notre serveur
+// Lancer notre serveur
 serveur.listen(8080, function() {
     console.log('Serveur en écoute...');
 });
 
-function traiter(donne){
-    let addNewValue = "INSERT INTO user VALUES('00004', " + donne +" );"
-    
+// Add user in the BDD
+function traiter(){
+    let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + nomFormulaire + "' , '" + motDePasseFormulaire + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');"
+
+    idUser = idUser + 1;
+
     const mysql = require('mysql');
 
     // Créer la variable pour se connecter à notre base
@@ -53,4 +60,6 @@ function traiter(donne){
         if(err) throw err;
         console.log(result);
     });
+
+    
 }
