@@ -23,11 +23,11 @@ serveur.get('/inscription.html', function (req, res) {
 });
 
 serveur.post('/inscription.html', function(req, res) {
-    nomFormulaire = req.body.name;
+    pseudoFormulaire = req.body.pseudo;
     motDePasseFormulaire = req.body.pass;
     emailFormulaire = req.body.email;
     numTelFormulaire = req.body.numTel;
-    console.log("test =" + nomFormulaire);
+    console.log("test =" + pseudoFormulaire);
 
     traiter();
 });
@@ -39,7 +39,7 @@ serveur.listen(8080, function() {
 
 // Add user in the BDD
 function traiter(){
-    let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + nomFormulaire + "' , '" + motDePasseFormulaire + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');"
+    let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + pseudoFormulaire + "' , '" + motDePasseFormulaire + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');"
 
     idUser = idUser + 1;
 
