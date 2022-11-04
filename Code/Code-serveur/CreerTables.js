@@ -1,3 +1,4 @@
+// Imports
 const mysql = require('mysql');
 
 // Créer la variable pour se connecter à notre base
@@ -18,8 +19,6 @@ let createtable = "CREATE TABLE user(\
                             email varchar(150),\
                             numTelephone varchar(20)\
                             );"
-// test 
-// let addValue = "INSERT INTO user VALUES('00001', 'Manon', 'manon', 'manon@gmail.com', '0763125441');"
 
 // Lancer les requêtes
 con.query(
@@ -35,15 +34,6 @@ con.query(
         if (err) throw err;       
         console.log(result);    
 });
-
-/*
-con.query(
-    addValue,
-    function (err, result){
-        if(err) throw err;
-        console.log(result); 
-});
-*/
 
 con.end(function (err) { 
     if (err) throw err;
