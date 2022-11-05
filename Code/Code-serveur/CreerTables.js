@@ -37,7 +37,7 @@ con.query(
 
 con.end(function (err) { 
     if (err) throw err;
-    else  console.log('Done.') 
+    else  console.log('Créaation de la table avec succés.'); 
 });
 
 
