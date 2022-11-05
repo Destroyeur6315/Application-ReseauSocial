@@ -1,6 +1,6 @@
 // Imports
 var bcrypt = require('bcrypt');
-var insertUser = require('../ConnexionBDD/InsertUser');
+var insertUser = require('../ConnexionBDD/BaseDeDonnee');
 
 // Variable 
 let idUser = 0;

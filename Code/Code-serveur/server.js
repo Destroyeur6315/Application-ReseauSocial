@@ -3,7 +3,7 @@ var express = require('express');
 // var connexionBDD = require('./CreerTables');
 var bodyParser = require("body-parser");
 var apiRouter = require('./apiRouter').router;
-var creerTable = require('./ConnexionBDD/InsertUser');
+var creerTable = require('./ConnexionBDD/BaseDeDonnee');
 
 // Create tables
 creerTable.createTable();
