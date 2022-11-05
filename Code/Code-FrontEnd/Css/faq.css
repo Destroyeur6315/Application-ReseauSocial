@@ -39,21 +39,22 @@ nav{
 }
 /*partie gauche*/
 #filter{
-    width: 50%;
+    width: 30%;
+    padding: 1em;
     border-right: 2px solid rgb(173, 173, 173);
 }
 /*partie droite*/
 #Faq{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 65%;
     padding-left: 2em;
 }
 
 .message{
     border: solid;
     margin-top: 1em;
-    padding: 1em;
+    padding: 0.5em;
     background-color: grey;
     border-radius: 2em;
 }
