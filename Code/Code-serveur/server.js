@@ -1,8 +1,12 @@
 // Imports
 var express = require('express');
-var connexionBDD = require('./CreerTables');
+// var connexionBDD = require('./CreerTables');
 var bodyParser = require("body-parser");
 var apiRouter = require('./apiRouter').router;
+var creerTable = require('./ConnexionBDD/InsertUser');
+
+// Create tables
+creerTable.createTable();
 
 // Instancier le serveur
 var serveur = express();

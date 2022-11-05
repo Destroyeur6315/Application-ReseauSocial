@@ -1,6 +1,6 @@
 // Imports
 var bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+var insertUser = require('../ConnexionBDD/InsertUser');
 
 // Variable 
 let idUser = 0;
@@ -34,11 +34,11 @@ module.exports = {
 
             let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + pseudoFormulaire + "' , '" + motDePasseCripte + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');";
 
-            connexionBaseDeDonnees(addNewValue);
+            insertUser.insertUserInBDD(addNewValue);
         });
         idUser = idUser + 1;
 
-        return res.status(200);
+        return res.status(200).send("<h1> Inscription validé ! </h1>");
     },
     login: function(req, res){
         var pseudoFormulaire = req.body.pseudo;
@@ -46,6 +46,9 @@ module.exports = {
 
         console.log("test =" + pseudoFormulaire);
         console.log("test =" + motDePasseFormulaire);
+
+        let requete = "SELECT * FROM user WHERE nom = " + pseudoFormulaire + ";";
+        console.log(requete);
     },
     getRegister: function(req, res){
         res.sendFile( __dirname +  '/inscription.html');
@@ -53,30 +56,4 @@ module.exports = {
     getLogin: function(req, res){
         res.sendFile( __dirname + '/connexion.html');
     }
-}
-
-function connexionBaseDeDonnees(requeteInsert){
-    const mysql = require('mysql');
-    // var requeteInsert = require('./routes/userFormulaire').addNewValue;
-
-    // Créer la variable pour se connecter à notre base
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });  
-
-    // Try to connect
-    con.connect(function(err) {   
-        if (err) throw err;   
-        console.log("Connecté à la base de données MySQL!");   
-    });
-    
-    con.query(
-        requeteInsert,
-        function (err, result) {
-            if (err) throw err;       
-            console.log(result);    
-    });
-    
-    con.end(function (err) { 
-        if (err) throw err;
-        else  console.log('Nouveau utilisateur ajouté à la BASE DE DONNEES avec succès !'); 
-    });
 }
