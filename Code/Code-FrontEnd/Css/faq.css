@@ -47,7 +47,7 @@ nav{
 #Faq{
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 60%;
     padding-left: 2em;
 }
 
