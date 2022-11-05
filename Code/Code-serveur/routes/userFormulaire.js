@@ -15,6 +15,8 @@ module.exports = {
         var emailFormulaire = req.body.email;
         var numTelFormulaire = req.body.numTel;
 
+        // var motDePasseCripte = "";
+
         // Tests en console
         console.log("test =" + pseudoFormulaire);
         console.log("test =" + motDePasseFormulaire);
@@ -26,12 +28,17 @@ module.exports = {
             return res.status(400).send("<h1> ERREUR </h1>");
         }
 
-        let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + pseudoFormulaire + "' , '" + motDePasseFormulaire + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');"
-        idUser = idUser + 1;
-        console.log("SALUT");
+        bcrypt.hash(motDePasseFormulaire, 5, function (err, bcryptedPassword){
+            var motDePasseCripte = bcryptedPassword;
+            console.log("mot de passe crypté 1 =" + motDePasseCripte);
 
-        connexionBaseDeDonnees(addNewValue);
-        
+            let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + pseudoFormulaire + "' , '" + motDePasseCripte + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');";
+
+            connexionBaseDeDonnees(addNewValue);
+        });
+        idUser = idUser + 1;
+
+        return res.status(200);
     },
     login: function(req, res){
         var pseudoFormulaire = req.body.pseudo;
@@ -70,9 +77,6 @@ function connexionBaseDeDonnees(requeteInsert){
     
     con.end(function (err) { 
         if (err) throw err;
-        else  console.log('Done.') 
+        else  console.log('Nouveau utilisateur ajouté à la BASE DE DONNEES avec succès !'); 
     });
-
-    console.log("OUI FICHIER OUVERT");
-
 }
