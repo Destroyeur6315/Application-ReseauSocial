@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(238, 238, 238, 0.914);
+}
+
+/* nav */
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
+    top: 0;
+    background-color: #fff;
+    margin: 0;
+    box-shadow: 12px 1px 5px grey;
+    color: black;
+}
+
+#onglets a{
+    color: black;
+    padding: 0.2em;
+    font-size: 2.2em;
+}
+
+#onglets{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#filter{
+    width: 50%;
+    border-right: 2px solid rgb(173, 173, 173);
+
+}
