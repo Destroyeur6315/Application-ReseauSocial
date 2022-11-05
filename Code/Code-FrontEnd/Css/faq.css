@@ -32,8 +32,28 @@ nav{
     align-items: center;
 }
 
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/*partie gauche*/
 #filter{
     width: 50%;
     border-right: 2px solid rgb(173, 173, 173);
+}
+/*partie droite*/
+#Faq{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding-left: 2em;
+}
 
+.message{
+    border: solid;
+    margin-top: 1em;
+    padding: 1em;
+    background-color: grey;
+    border-radius: 2em;
 }
