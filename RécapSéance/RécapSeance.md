@@ -93,6 +93,12 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Rapport de Gestion de projet commencé
 - Partie back en apprentissage
 
-
+***
+ 
+#### Séance du 06/11/2022
+- Page FAQ codée
+- Serveur Node.js et Application Express commencé
+- Inscription avec formulaire et sauvegarde des données en bdd (mysql sans sequelize -> requête SQL)
+- Quelques routes gérées (Commencement de l'API)
 
 
