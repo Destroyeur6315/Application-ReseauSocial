@@ -20,16 +20,16 @@ nav{
     color: black;
 }
 
-#onglets a{
-    color: black;
-    padding: 0.2em;
-    font-size: 2.2em;
-}
-
 #onglets{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+}
+
+#onglets i{
+    color: black;
+    padding: 0.2em;
+    font-size: 2em;
 }
 
 #container{
@@ -57,4 +57,20 @@ nav{
     padding: 0.5em;
     background-color: grey;
     border-radius: 2em;
+}
+
+ul.sous{
+	display:none;
+	}
+li.deroulant:hover ul.sous{
+	display:block;
+    position: absolute;
+    right: 0%;
+    list-style-type: none;
+    margin: 0;
+    border: solid;
+	}
+
+#onglets a{
+    font-size: 1em;
 }

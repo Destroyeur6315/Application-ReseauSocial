@@ -20,10 +20,10 @@ nav{
     color: black;
 }
 
-#onglets a{
+#onglets i{
     color: black;
     padding: 0.2em;
-    font-size: 2.2em;
+    font-size: 2em;
 }
 
 #onglets{
@@ -202,4 +202,20 @@ nav{
 #icone_picture{
     width: 10em;
     height: 10em;
+}
+
+ul.sous{
+	display:none;
+	}
+li.deroulant:hover ul.sous{
+	display:block;
+    position: absolute;
+    right: 0%;
+    list-style-type: none;
+    margin: 0;
+    border: solid;
+	}
+
+#onglets a{
+    font-size: 1em;
 }
