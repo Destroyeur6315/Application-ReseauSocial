@@ -1,23 +1,10 @@
 // Imports
-var express = require('express');
-// var connexionBDD = require('./CreerTables');
-var bodyParser = require("body-parser");
-var apiRouter = require('./apiRouter').router;
-var creerTable = require('./ConnexionBDD/BaseDeDonnee');
+const http = require('http');
+const app = require('./app');
 
-// Create tables
-creerTable.createTable();
+app.set('port', process.env.PORT || 3000);
 
-// Instancier le serveur
-var serveur = express();
+// Create server
+const server = http.createServer(app);
 
-// Utiliser le module de parsing
-serveur.use(bodyParser.urlencoded({ extended: true }));
-
-// Utiliser notre API
-serveur.use('/api/', apiRouter);
-
-// Lancer notre serveur
-serveur.listen(8080, function() {
-    console.log('Serveur en écoute...');
-});
+server.listen(process.env.PORT || 3000);

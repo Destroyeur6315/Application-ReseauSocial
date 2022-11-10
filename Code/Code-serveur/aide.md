@@ -14,3 +14,5 @@
 -> npm install jsonwebtoken --save
 -> npm install bcrypt --save
 
+# Binding
+-> faire du binding pour passer des infos au front

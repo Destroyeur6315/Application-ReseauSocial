@@ -2,8 +2,6 @@
 var jwt = require('jsonwebtoken');
 const mysql = require('mysql');
 
-// Créer la variable pour se connecter à notre base
-const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
 
 module.exports = {
     createTable: function(){

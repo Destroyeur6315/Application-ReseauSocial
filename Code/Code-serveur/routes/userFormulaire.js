@@ -1,6 +1,6 @@
 // Imports
 var bcrypt = require('bcrypt');
-var insertUser = require('../ConnexionBDD/BaseDeDonnee');
+var connexionAbdd = require('../ConnexionBDD/BaseDeDonnee');
 
 // Variable 
 let idUser = 0;
@@ -28,16 +28,18 @@ module.exports = {
             return res.status(400).send("<h1> ERREUR </h1>");
         }
 
+        // Cryptage password and add user in bdd
         bcrypt.hash(motDePasseFormulaire, 5, function (err, bcryptedPassword){
             var motDePasseCripte = bcryptedPassword;
             console.log("mot de passe crypté 1 =" + motDePasseCripte);
 
             let addNewValue = "INSERT INTO user VALUES('" + idUser + "', '" + pseudoFormulaire + "' , '" + motDePasseCripte + "', '" + emailFormulaire + "', '"  + numTelFormulaire + "');";
 
-            insertUser.insertUserInBDD(addNewValue);
+            connexionAbdd.insertUserInBDD(addNewValue);
         });
         idUser = idUser + 1;
 
+        // à modifier ! 
         return res.status(200).send("<h1> Inscription validé ! </h1>");
     },
     login: function(req, res){
@@ -49,11 +51,17 @@ module.exports = {
 
         let requete = "SELECT * FROM user WHERE nom = " + pseudoFormulaire + ";";
         console.log(requete);
+
+        // connexionAbdd.insertUserInBDD(requete);
     },
     getRegister: function(req, res){
-        res.sendFile( __dirname +  '/inscription.html');
+        // res.sendFile('d:/Cours/BUT-2eme-Année/SAE/Application-ReseauSocial/Code/Code-FrontEnd/Html/inscription.html');
+        res.sendFile( __dirname + '/style/Html/inscription.html');
     },
     getLogin: function(req, res){
-        res.sendFile( __dirname + '/connexion.html');
+        res.sendFile( __dirname + '/style/Html/connexion.html');
+    },
+    getLoginCss: function(req, res){
+        res.sendFile( __dirname+ '/style/Css/InscriptionEtConnexion.css');
     }
 }
