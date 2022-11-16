@@ -1,8 +1,15 @@
 // Imports
 var express = require('express');
-var connexionBDD = require('./connection');
+// var connexionBDD = require('./connection');
 var bodyParser = require("body-parser");
 var sessions = require('express-session');
+var crypto = require('crypto');
+const session = require('express-session');
+const onehour=1000*60*60
+
+var generate_key = function() {
+    return crypto.randomBytes(16).toString('base64');
+};
 
 // Varibale pour données du formulaire
 var nomFormulaire = "";
@@ -13,9 +20,18 @@ var serveur = express();
 // utilise le module de parsing
 serveur.use(bodyParser.urlencoded({ extended: true }));
 serveur.use(session({
-    secret:"+",
-
+    secret:generate_key(),
+    cookie: {maxAge :onehour},
 }))
+
+serveur.get('/',(req,res)=>{
+    session=req.session;
+    if (session.userid){
+        res.send("Tu es bien connecté")
+    }
+    else
+     res.sendFile(__dirname+'/connexion.html')
+})
 
 // Configurer les routes
 serveur.get('/inscription.html', function (req, res) {
