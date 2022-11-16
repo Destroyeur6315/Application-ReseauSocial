@@ -122,25 +122,25 @@ function traiter(donne){
     }
 }
 
-function publication(donne){
-    var requete_sql = '\
-  INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
-  // ici, les valeurs prennent "??" lorsque nous insérons une chaîne de caractères
-  // et "?" lorsqu'il s'agit d'un nombre
-  'VALUES(??, ??, NOW())';
-    // l'array "inserts" contient, dans l'ordre d'apparition dans la requête, les éléments
-    // qui doivent remplacer les points d'interrogation
-    var inserts = [
-    nomcreateur,
-    contenu,
-    ];
+// function publication(donne){
+//     var requete_sql = '\
+//   INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
+//   // ici, les valeurs prennent "??" lorsque nous insérons une chaîne de caractères
+//   // et "?" lorsqu'il s'agit d'un nombre
+//   'VALUES(??, ??, NOW())';
+//     // l'array "inserts" contient, dans l'ordre d'apparition dans la requête, les éléments
+//     // qui doivent remplacer les points d'interrogation
+//     var inserts = [
+//     nomcreateur,
+//     contenu,
+//     ];
 
-    const mysql = require('mysql');
+//     const mysql = require('mysql');
 
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" })
+//     const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" })
 
-    con.connect(function(err) {   
-        if (err) throw err;   
-        console.log("Connecté à la base de données MySQL!");   
-    });
-}
+//     con.connect(function(err) {   
+//         if (err) throw err;   
+//         console.log("Connecté à la base de données MySQL!");   
+//     });
+// }
