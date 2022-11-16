@@ -49,10 +49,10 @@ module.exports = {
         console.log("test =" + pseudoFormulaire);
         console.log("test =" + motDePasseFormulaire);
 
-        let requete = "SELECT * FROM user WHERE nom = " + pseudoFormulaire + ";";
+        let requete = "SELECT * FROM user WHERE nom = '" + pseudoFormulaire + "';";
         console.log(requete);
 
-        // connexionAbdd.insertUserInBDD(requete);
+        connexionAbdd.requeteLoginInBDD(requete);
     },
     getRegister: function(req, res){
         // res.sendFile('d:/Cours/BUT-2eme-Année/SAE/Application-ReseauSocial/Code/Code-FrontEnd/Html/inscription.html');
