@@ -13,27 +13,24 @@
 
         <div id="formulaire">
 
-            <form action="inscription.html" method="post">
+            <form action="publiformulaire.html" method="post">
 
                 <fieldset>
                     
                     <!-- Titre du fieldset --> 
-                    <legend>Inscription</legend> 
-
-                    <label for="name">Nom :</label>
+                    <legend>Publication</legend> 
+                    <input type="hidden" name="nomform" id="nomform" content="publication">
+                    <label for="name">nom :</label>
                     <br/> 
                     <input type="text" name="name" id="name" placeholder="Ex : Romain" size="30" maxlength="10" />
-                    <br /> <br/>  
-                    <label for="pass">Mot de passe :</label>
+                    <br /> <br/> 
+                    <label for="contenu">Contenu</label>
                     <br/>
-                    <input type="password" name="pass" id="pass" />
+                    <input type="text" name="contenu" id="pass" />
                     <br /> <br/>
                     <label for="email">Adresse mail :</label>
                     <br/>
                     <input type="email" name="email" id="email" placeholder="Ex : bidule@gmail.com"/>
-                    <br /> <br/>
-                    <label for="numTel">Numéro de Téléphone :</label>
-                    <input type="tel" name="numTel" id="numTel" placeholder="Ex : 07 78 78 41 34"/>
                     <br/> 
                 </fieldset>
 
@@ -55,5 +52,3 @@
 
     </body>
 </html>
-
-<!-- https://www.jotform.com/build/222862087740055 Bouton perso-->

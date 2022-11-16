@@ -8,7 +8,7 @@ con.connect(function(err) {
     if (err) throw err;   
     console.log("Connecté à la base de données MySQL!");   
 }); 
-let createtable = "CREATE TABLE publication(id char(5) PRIMARY KEY AUTO_INCREMENT, nomcreateur varchar(20),contenu text(),dateecriture date());"
+let createtable = "CREATE TABLE publication(id char(5) PRIMARY KEY AUTO_INCREMENT, nomcreateur varchar(20),contenu text(),dateecriture date(),image varchar(30));"
 con.query(
     createtable,
     function(err,result){
