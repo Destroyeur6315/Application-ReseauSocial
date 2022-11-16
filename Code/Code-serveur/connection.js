@@ -11,7 +11,7 @@ con.connect(function(err) {
 
 // Requête sql
 let supprimertable = "DROP TABLE IF EXISTS user;"
-let createtable = "CREATE TABLE user(id char(5) PRIMARY KEY, nom varchar(20));"
+let createtable = "CREATE TABLE user(id char(5) PRIMARY KEY AUTO_INCREMENT, nom varchar(20));"
 let addValue = "INSERT INTO user VALUES('00001', 'Manon');"
 
 // Lancer les requêtes

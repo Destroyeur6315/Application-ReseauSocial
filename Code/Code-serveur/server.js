@@ -2,8 +2,7 @@
 var express = require('express');
 var connexionBDD = require('./connection');
 var bodyParser = require("body-parser");
-var session = require('express-session');
-
+var sessions = require('express-session');
 
 // Varibale pour données du formulaire
 var nomFormulaire = "";
@@ -13,7 +12,10 @@ var serveur = express();
 
 // utilise le module de parsing
 serveur.use(bodyParser.urlencoded({ extended: true }));
+serveur.use(session({
+    secret:"+",
 
+}))
 
 // Configurer les routes
 serveur.get('/inscription.html', function (req, res) {
@@ -42,12 +44,7 @@ serveur.post('/publiformulaire.html', function(req, res) {
     console.log("test =" + nomFormulaire);
     
     traiter(nomFormulaire);
-  });
-
-serveur.get('/',function(req,res){
-    
-})
-  
+  });  
 
 // lancer notre serveur
 serveur.listen(8080, function() {
@@ -59,10 +56,10 @@ function traiter(donne){
         case "inscription":
 
             var requete_sql = '\
-            INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
+            INSERT INTO user (nom,mot_de_passe,email,numTelephone)'+
             // ici, les valeurs prennent "??" lorsque nous insérons une chaîne de caractères
             // et "?" lorsqu'il s'agit d'un nombre
-            'VALUES(??, ??, NOW())';
+            'VALUES(??,??,??,??)';
             // l'array "inserts" contient, dans l'ordre d'apparition dans la requête, les éléments
             // qui doivent remplacer les points d'interrogation
             var inserts = [
@@ -102,8 +99,6 @@ function traiter(donne){
                 nomcreateur,
                 contenu,
             ];
-            
-            const mysql = require('mysql');
                     
             con.connect(function(err) {   
                 if (err) throw err;   
@@ -117,6 +112,9 @@ function traiter(donne){
                     if(err) throw err;
                     console.log(result);}
             );
+            break;
+        case "connection":
+            
             break;
 
     }
