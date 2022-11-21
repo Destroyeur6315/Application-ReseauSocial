@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/style', express.static('D:\Cours\BUT-2eme-Année\SAE\Application-ReseauSocial\Code\Code-FrontEnd\style'));
 
 // Utiliser notre API
-app.use('/api/', apiRouter);
+app.use('/', apiRouter);
 
 // Lancer notre serveur
 app.listen(8080, function() {

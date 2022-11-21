@@ -7,7 +7,7 @@ let idUser = 0;
 
 // Routes
 module.exports = {
-    register: function(req, res){
+    registerUser: function(req, res){
 
         // Réponse du formulaire
         var pseudoFormulaire = req.body.pseudo;
@@ -49,19 +49,23 @@ module.exports = {
         console.log("test =" + pseudoFormulaire);
         console.log("test =" + motDePasseFormulaire);
 
-        let requete = "SELECT * FROM user WHERE nom = '" + pseudoFormulaire + "';";
-        console.log(requete);
+        connexionAbdd.requeteLoginInBDD(pseudoFormulaire, motDePasseFormulaire);
+        
+        res.sendFile(__dirname + '/style/Html/profil.html');
 
-        connexionAbdd.requeteLoginInBDD(requete);
     },
-    getRegister: function(req, res){
+    getPageRegister: function(req, res){
         // res.sendFile('d:/Cours/BUT-2eme-Année/SAE/Application-ReseauSocial/Code/Code-FrontEnd/Html/inscription.html');
         res.sendFile( __dirname + '/style/Html/inscription.html');
     },
-    getLogin: function(req, res){
+    getPageLogin: function(req, res){
         res.sendFile( __dirname + '/style/Html/connexion.html');
     },
     getLoginCss: function(req, res){
         res.sendFile( __dirname+ '/style/Css/InscriptionEtConnexion.css');
+    },
+    getProfilCss : function(req, res){
+        res.sendFile( __dirname + '/style/Css/profil.css')
     }
+
 }
