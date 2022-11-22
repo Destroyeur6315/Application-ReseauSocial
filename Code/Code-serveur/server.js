@@ -30,7 +30,7 @@ serveur.get('/',(req,res)=>{
     }
     else
         res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
-})
+});
 
 serveur.get('/deconnection',(req,res) => {
     req.session.destroy();
@@ -57,18 +57,15 @@ Serveur.post('/connexion.html',function(req,res){
     nom=req.body.name;
     motdepasse=req.body.pass;
 
-    connexion(nom,motdepasse)
+    connexion(nom,motdepasse);
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
-    nomFormulaire = req.body.nomform;
     nomuser = req.body.name;
     contenu = req.body.contenu;
-
-    console.log("test =" + nomFormulaire);
     
-    traiter(nomFormulaire);
-  });  
+    publication(nomuser,contenu);
+});  
 
 // lancer notre serveur
 serveur.listen(8080, function() {
@@ -187,6 +184,7 @@ function ajouteruser(nom,passwd,email,numtel){
         else  console.log('Fin de la connexion en BDD'); 
     });
 }
+
 function publication(donne){
     var requete_sql = '\
   INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
@@ -208,6 +206,13 @@ function publication(donne){
         if (err) throw err;   
         console.log("Connecté à la base de données MySQL!");   
     });
+
+    con.query(
+        requete_sql,
+        function (err, result) {
+            if(err) throw err;
+            console.log(result);
+        });
 }
 
     // switch(donne){
