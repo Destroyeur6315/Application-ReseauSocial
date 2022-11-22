@@ -13,12 +13,6 @@ const onehour=1000*60*60;
 // Instancier le serveur
 var serveur = express();
 
-serveur.use(sessions({
-    secret: generate_key,
-    saveUninitialized:true,
-    cookie: { maxAge: onehour },
-    resave: false 
-}));
 
 var session;
 var generate_key = function() {
@@ -167,8 +161,13 @@ function ajouteruser(nom,passwd,email,numtel){
 
     con.query(requete,  recupResultat);
 
+    serveur.use(sessions({
+        secret: generate_key,
+        saveUninitialized:true,
+        cookie: { maxAge: onehour },
+        resave: false 
+    }));
     session=req.session;
-    session.secret=//mettre l'id du user récupéré avec la requète;
     
     console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 
