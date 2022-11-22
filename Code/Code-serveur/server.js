@@ -13,6 +13,13 @@ const onehour=1000*60*60;
 // Instancier le serveur
 var serveur = express();
 
+serveur.use(sessions({
+    secret: generate_key,
+    saveUninitialized:true,
+    cookie: { maxAge: onehour },
+    resave: false 
+}));
+
 var session;
 var generate_key = function() {
     return crypto.randomBytes(16).toString('base64');
