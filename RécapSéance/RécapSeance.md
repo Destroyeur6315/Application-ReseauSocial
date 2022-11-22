@@ -94,5 +94,14 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Partie back en apprentissage
 
 
+#### Avancé (21/11/2022)
+- Connexion qui avance (comparaison du mot de passe tapé avec celui en bdd ( retourne true or false))
+- Idée qui merge (session pour les utilisateurs)
+- Fonctionnalités des publicités commencées
+
+
+
+
+
 
 
