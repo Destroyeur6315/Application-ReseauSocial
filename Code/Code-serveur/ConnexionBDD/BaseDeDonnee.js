@@ -17,13 +17,6 @@ async function comparePassword(plaintextPassword, hash) {
 }
 */
 
-function valide(){
-
-}
-
-function invalide(){
-
-}
 
 module.exports = {
     createTable: function(){
@@ -89,10 +82,12 @@ module.exports = {
     requeteLoginInBDD: function(pseudo, motDePasse){
         const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
 
+        let data;
+    
         // Try to connect
         con.connect(function(err) {   
             if (err) throw err;   
-            console.log("Connecté à la base de données MySQL!");   
+            console.log("Connecté à la base de données MySQL!");  
         });
 
         let requete = "SELECT * FROM user WHERE nom = '" + pseudo + "';";
@@ -126,8 +121,6 @@ module.exports = {
 
                //var n = comparePassword(motDePasse, json[0].motDePasse);
 
-               
-
                bcrypt.compare(motDePasse, json[0].motDePasse, (err, data) => {
                     //if error than throw error
                     if (err) throw err
@@ -144,9 +137,13 @@ module.exports = {
                     }
                 })
             }
+
+            return result;
         }   
 
-        con.query(requete, recupResultat);
+        con.query(requete,  recupResultat); 
+
+        console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 
         con.end(function (err) { 
             if (err) throw err;

@@ -16,3 +16,7 @@
 
 # Binding
 -> faire du binding pour passer des infos au front
+
+# Fontion asynchrone
+-> Fonction qui se lance et le programme lance les lignes d'après même si la fonction résultat n'a pas encore retourné son résultat
+-> On utilise des fonction de callback, qui sont appelé pour gérer les résultats
