@@ -24,12 +24,7 @@ serveur.use(bodyParser.urlencoded({ extended: true }));
 
 
 serveur.get('/',(req,res)=>{
-    sessions=req.session;
-    if (sessions.userid){
-        res.send("Tu es bien connecté")
-    }
-    else
-        res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
 });
 
 serveur.get('/deconnection',(req,res) => {
@@ -37,9 +32,14 @@ serveur.get('/deconnection',(req,res) => {
     res.redirect('/');
 });
 
-serveur.get('inscription.html',function(req,res){
-    res.sendFile(__dirname + '/publiFormulaire.html');
+serveur.get('/inscription.html',function(req,res){
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
 });
+
+serveur.get('/publiformulaire.html',function(req,res){
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/publiformulaire.html'))
+});
+
 
 serveur.post('/', function(req, res) {
     nom=req.body.name;
@@ -50,10 +50,10 @@ serveur.post('/', function(req, res) {
 });
 
 serveur.get('/connexion.html',(req,res)=>{
-    res.sendFile(__dirname + '/../Code-FrontEnd/Html/connexion.html')
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
 });
 
-Serveur.post('/connexion.html',function(req,res){
+serveur.post('/connexion.html',function(req,res){
     nom=req.body.name;
     motdepasse=req.body.pass;
 
