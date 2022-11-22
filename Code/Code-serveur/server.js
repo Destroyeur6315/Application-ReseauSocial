@@ -97,6 +97,7 @@ function ajouteruser(nom,passwd,email,numtel){
                 if (err) throw err;   
                 console.log("Connecté à la base de données MySQL!");   
             });
+            requete_sql=sql.preparer(mysql,requete_sql,inserts)
 
             con.query(
             requete_sql,
@@ -207,6 +208,7 @@ function publication(donne){
         console.log("Connecté à la base de données MySQL!");   
     });
 
+    requete_sql = sql.preparer(mysql, requete_sql, inserts);
     con.query(
         requete_sql,
         function (err, result) {
