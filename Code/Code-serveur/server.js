@@ -1,10 +1,10 @@
 // Imports
 var express = require('express');
 // var connexionBDD = require('./connection');
+const path=require('path');
 var bodyParser = require("body-parser");
 var sessions = require('express-session');
 var crypto = require('crypto');
-const session = require('express-session');
 const onehour=1000*60*60
 
 var generate_key = function() {
@@ -12,36 +12,30 @@ var generate_key = function() {
 };
 
 // Varibale pour données du formulaire
-var nomFormulaire = "";
-
 // Instancier le serveur
 var serveur = express();
 
 // utilise le module de parsing
-serveur.use(bodyParser.urlencoded({ extended: true }));
-serveur.use(session({
-    secret:generate_key(),
-    cookie: {maxAge :onehour},
-}))
+// serveur.use(bodyParser.urlencoded({ extended: true }));
+// serveur.use(sessions({
+//     secret:generate_key(),
+//     cookie: {maxAge :onehour},
+// }))
 
 serveur.get('/',(req,res)=>{
-    session=req.session;
-    if (session.userid){
-        res.send("Tu es bien connecté")
-    }
-    else
-     res.sendFile(__dirname+'/connexion.html')
+    // sessions=req.session;
+    // if (sessions.userid){
+    //     res.send("Tu es bien connecté")
+    // }
+    // else
+     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
 })
 
-// Configurer les routes
-serveur.get('/inscription.html', function (req, res) {
-    // res.setHeader('Content-Type', 'text/html');
-    res.sendFile( __dirname +  '/inscription.html');
-    // res.status(200).send('./inscription.html');
-});
+serveur.get('inscription.html',function(req,res){
+    res.sendFile(__dirname + '/publiFormulaire.html');
+})
 
-serveur.post('/inscription.html', function(req, res) {
-    nomFormulaire = req.body.nomform;
+serveur.post('/', function(req, res) {
     nom=req.body.name;
     passwd=req.body.pass;
     email=req.body.email;
