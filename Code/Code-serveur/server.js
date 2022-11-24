@@ -1,28 +1,34 @@
 // Imports
 var express = require('express');
-// var connexionBDD = require('./connection');
-const path=require('path');
+const path = require('path');
 var bodyParser = require("body-parser");
 var sessions = require('express-session');
 var crypto = require('crypto');
 const { Server } = require('http');
+// var connexionBDD = require('./connection');
+
+
+// Definition de variable
 const onehour=1000*60*60;
+var session;
 
-
-
-// Varibale pour données du formulaire
 // Instancier le serveur
 var serveur = express();
 
-
-var session;
 var generate_key = function() {
     return crypto.randomBytes(16).toString('base64');
 };
-// utilise le module de parsing
+
+// Utilise le module de parsing
 serveur.use(bodyParser.urlencoded({ extended: true }));
 
 
+// Accéder aux Css et aux images
+serveur.use(express.static(path.join(__dirname, '..', 'Code-FrontEnd')));
+
+
+
+// Definition des routes
 serveur.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
 });
@@ -32,7 +38,7 @@ serveur.get('/deconnection',(req,res) => {
     res.redirect('/');
 });
 
-serveur.get('/inscription.html',function(req,res){
+serveur.get('/connexion.html',function(req,res){
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
 });
 
@@ -49,9 +55,11 @@ serveur.post('/', function(req, res) {
     ajouteruser(nom,passwd,email,numtel);
 });
 
+/** 
 serveur.get('/connexion.html',(req,res)=>{
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
 });
+*/
 
 serveur.post('/connexion.html',function(req,res){
     nom=req.body.name;
@@ -69,7 +77,7 @@ serveur.post('/publiformulaire.html', function(req, res) {
 
 // lancer notre serveur
 serveur.listen(8080, function() {
-    console.log('Serveur en écoute...');
+    console.log('Serveur en écoute à l\'adresse suivant : http://localhost:8080/ ...');
 });
 
 function ajouteruser(nom,passwd,email,numtel){
@@ -107,7 +115,7 @@ function ajouteruser(nom,passwd,email,numtel){
             });
 }
 
-  function connexion(pseudo, motDePasse){
+function connexion(pseudo, motDePasse){
     const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
 
     let data;
