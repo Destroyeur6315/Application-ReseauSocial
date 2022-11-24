@@ -3,6 +3,7 @@ var express = require('express');
 const path = require('path');
 var bodyParser = require("body-parser");
 var sessions = require('express-session');
+const cookieParser = require("cookie-parser");
 const mysql = require('mysql');
 var crypto = require('crypto');
 const { Server } = require('http');
@@ -10,8 +11,12 @@ const { Server } = require('http');
 // var connexionBDD = require('./connection');
 
 // Definition de variable
-const onehour=1000*60*60;
+const onehour= 1000*60*60;
+const myusername = 'romain'
+const mypassword = 'destro'
 var session;
+let mdp;
+let user;
 
 // Instancier le serveur
 var serveur = express();
@@ -25,11 +30,21 @@ createtable();
 
 // Middleware
 // Utilise le module de parsing
+serveur.use(express.json());
 serveur.use(bodyParser.urlencoded({ extended: true }));
 
 // Accéder aux Css et aux images
 serveur.use(express.static(path.join(__dirname, '..', 'Code-FrontEnd')));
 
+serveur.use(sessions({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: onehour },
+    resave: false 
+}));
+
+// cookie parser middleware
+serveur.use(cookieParser());
 
 // Definition des routes
 serveur.get('/',(req,res)=>{
@@ -74,10 +89,26 @@ serveur.get('/connexion.html',(req,res)=>{
 */
 
 serveur.post('/connexion.html',function(req,res){
-    nom=req.body.name;
+    pseudo=req.body.pseudo;
     motdepasse=req.body.pass;
 
-    connexion(nom,motdepasse);
+    /**
+    if(pseudo == myusername && motdepasse == mypassword){
+        session=req.session;
+        session.userid=pseudo;
+        console.log(req.session);
+        res.send(`Hey there, welcome <a href=\'/deconnection'>click to logout</a>`);
+    }
+    else{
+        res.send('Invalid username or password');
+    }
+     */
+
+    connexion2(pseudo, motdepasse);
+
+    console.log(mdp);
+    console.log(user);
+    
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
@@ -92,85 +123,6 @@ serveur.listen(8080, function() {
     console.log('Serveur en écoute à l\'adresse suivant : http://localhost:8080/ ...');
 });
 
-
-function connexion(pseudo, motDePasse){
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
-
-    let data;
-
-    // Try to connect
-    con.connect(function(err) {   
-        if (err) throw err;   
-        console.log("Connecté à la base de données MySQL!");  
-    });
-
-    let requete = "SELECT * FROM user WHERE nom = '" + pseudo + "';";
-    console.log(requete);
-
-    var userValide = false;
-
-    function recupResultat(err,  rows, fields) {
-        if (err) throw err;
-        var result = [];
-        for (var i = 0; i < rows.length; i++) {
-                result = rows; //je stock le résultat dans une variable pour l'envoyer à la vue
-                //globalResult.push(i);
-        }
-
-        var test = JSON.stringify(result);
-        var json = JSON.parse(test);
-
-        var mdp = "mot de passe";
-        
-        console.log(json.length);
-        // Gerer les erreurs (quand SELECT ne retourne rien)
-
-        if(json.length > 0){
-            console.log("nom = ", json[0].nom);
-            console.log("mot de passe = ", json[0].motDePasse);
-
-            email = json[0].email;
-
-            console.log(result);
-
-           //var n = comparePassword(motDePasse, json[0].motDePasse);
-
-           bcrypt.compare(motDePasse, json[0].motDePasse, (err, data) => {
-                //if error than throw error
-                if (err) throw err
-                //if both match than you can do anything
-                if (data) {
-                    //return res.status(200).json({ msg: "Login success" })
-                    console.log("mot de passe VALIDE");
-                    valide("valide");
-                } else {
-                    //return res.status(401).json({ msg: "Invalid credencial" })
-                    console.log("mot de passe INVALIDE");
-                    return "invalide";
-                }
-            })
-        }
-
-        return result;
-    }   
-
-    con.query(requete,  recupResultat);
-
-    serveur.use(sessions({
-        secret: generate_key,
-        saveUninitialized:true,
-        cookie: { maxAge: onehour },
-        resave: false 
-    }));
-    session.userid=
-    
-    console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-
-    con.end(function (err) { 
-        if (err) throw err;
-        else  console.log('Fin de la connexion en BDD'); 
-    });
-}
 
 function publication(donne){
     var requete_sql = '\
@@ -264,8 +216,120 @@ function insertUser(requete){
         });
 }
 
+function connexion2(pseudo, motDePasse){
+    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+
+    let validation = "INVALIDE";
+
+    var query = con.query("SELECT * FROM user WHERE nom = '" + pseudo + "';");
+
+    query
+        .on('error', function(err) {
+            // Handle error, an 'end' event will be emitted after this as well
+            throw err; 
+        })
+        .on('fields', function(fields) {
+            // the field packets for the rows to follow
+        })
+        .on('result', function(rows) {
+            // Pausing the connnection is useful if your processing involves I/O
+            con.pause();
+
+            console.log(rows.nom);
+            console.log(rows.motDePasse);
+
+            if(rows.motDePasse == motDePasse){
+                validation = "VALIDE";
+                mdp = rows.motDePasse;
+                user = rows.nom;
+            }
+
+            con.resume();
+        })
+        .on('end', function() {
+            // all rows have been received
+        });
+
+    console.log(validation);
+
+}
 
 
+function connexion(pseudo, motDePasse){
+    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+
+    // Try to connect
+    con.connect(function(err) {   
+        if (err) throw err;   
+        console.log("Connecté à la base de données MySQL!");  
+    });
+
+    let requete = "SELECT * FROM user WHERE nom = '" + pseudo + "';";
+
+    function recupResultat(err,  rows, fields) {
+        if (err) throw err;
+        var result = [];
+        for (var i = 0; i < rows.length; i++) {
+                result = rows; //je stock le résultat dans une variable pour l'envoyer à la vue
+                //globalResult.push(i);
+        }
+
+        var test = JSON.stringify(result);
+        var json = JSON.parse(test);
+
+        var mdp = "mot de passe";
+        
+        console.log(json.length);
+        // Gerer les erreurs (quand SELECT ne retourne rien)
+
+        if(json.length > 0){
+            console.log("nom = ", json[0].nom);
+            console.log("mot de passe = ", json[0].motDePasse);
+
+            email = json[0].email;
+
+            console.log(result);
+
+            if(motDePasse == json[0].motDePasse){
+                console.log("OUI mot de passe VALIDE");
+            }
+            else{
+                console.log("NON mot de passe INVALIDE");
+            }
+
+           //var n = comparePassword(motDePasse, json[0].motDePasse);
+            /**
+           bcrypt.compare(motDePasse, json[0].motDePasse, (err, data) => {
+                //if error than throw error
+                if (err) throw err
+                //if both match than you can do anything
+                if (data) {
+                    //return res.status(200).json({ msg: "Login success" })
+                    console.log("mot de passe VALIDE");
+                    valide("valide");
+                } else {
+                    //return res.status(401).json({ msg: "Invalid credencial" })
+                    console.log("mot de passe INVALIDE");
+                    return "invalide";
+                }
+            })
+             */
+        }
+
+        return result;
+    }   
+
+    con.query(requete,  recupResultat);
+    
+    console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+
+    con.end(function (err) { 
+        if (err) throw err;
+        else  console.log('Fin de la connexion en BDD'); 
+    });
+
+
+}
 
 
 
