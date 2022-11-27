@@ -93,7 +93,7 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Rapport de Gestion de projet commencé
 - Partie back en apprentissage
 
-<<<<<<< HEAD
+
 ***
  
 #### Séance du 06/11/2022
@@ -110,8 +110,5 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 
 
 
-
-
->>>>>>> mainRomain
 
 
