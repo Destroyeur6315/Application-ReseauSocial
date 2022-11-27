@@ -1,0 +1,205 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(238, 238, 238, 0.914);
+}
+
+/* nav */
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
+    top: 0;
+    background-color: #fff;
+    margin: 0;
+    box-shadow: 12px 1px 5px grey;
+    color: black;
+}
+
+#onglets a{
+    color: black;
+    padding: 0.2em;
+    font-size: 2.2em;
+}
+
+#onglets{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* Section */
+
+/***** partie gauche *****/
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#container_publication{
+    width: 50%;
+    padding-right: 2em;
+    border-right: 2px solid rgb(173, 173, 173);
+}
+
+.publication{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 2em;
+    padding: 1em;
+    margin: 1em;
+}
+
+.publication .profil img{
+    height: 5em;
+    width: 5em;
+    padding-top: 10%;
+}
+
+.message_interaction{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.message_interaction .onglets i{
+    font-size: xx-large;
+}
+
+.message_interaction .onglets img{
+    height: 2em;
+    width: 2em;
+}
+
+.profil{
+    padding: 1em;
+}
+
+
+/***** partie droite *****/
+
+.container_profil{
+    width: 45%;
+    padding-left: 2em;
+}
+
+.profilDebut{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: red;
+    border-radius: 2em;
+    padding: 1em;
+    margin: 1em;
+    height: 100%;
+}
+
+.profil{
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    flex: 0.8;
+}
+
+.container_profil_name_metier{
+    background-color: aqua;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.profil_name_metier{
+    width: 90%;
+    height: 90%;
+    background-color: beige;
+}
+
+.profil_name_metier p{
+    font-size: 25px;
+}
+
+#name{
+    font-size: 35px;
+}
+
+#metier{
+    margin-left: 15px;
+    font-weight: bolder;
+}
+
+.Description{
+    background-color: green;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Description_texte{
+    flex: 3;
+    background-color: purple;
+}
+
+.Description_bouton{
+    flex: 1;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+}
+
+.profil_nombre_contact{
+    flex: 1;
+    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: row;
+}
+
+.profil_nombre_publication{
+    flex: 3;
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row;
+}
+
+.modification_profil{
+    flex: 1;
+    background-color: coral;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.Description_bouton img{
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.publication_profil{
+    background-color: yellow;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.publication_utilisateur{
+    background-color: blanchedalmond;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#icone_picture{
+    width: 10em;
+    height: 10em;
+}
