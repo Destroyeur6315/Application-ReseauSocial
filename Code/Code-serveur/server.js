@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const mysql = require('mysql');
 var crypto = require('crypto');
 const { Server } = require('http');
+const { response } = require('express');
 
 // var connexionBDD = require('./connection');
 
@@ -221,7 +222,7 @@ function connexion2(pseudo, motDePasse){
 
     let validation = "INVALIDE";
 
-    var query = con.query("SELECT * FROM user WHERE nom = '" + pseudo + "';");
+    var query = con.query("SELECT * FROM user WHERE nom = ?? AND motdepasse = ??'" + pseudo + "';");
 
     query
         .on('error', function(err) {
@@ -264,38 +265,59 @@ function connexion(pseudo, motDePasse){
         console.log("Connecté à la base de données MySQL!");  
     });
 
-    let requete = "SELECT * FROM user WHERE nom = '" + pseudo + "';";
+    var requete_sql = '\
+        SELECT * FROM user WHERE nom= ?? AND motdepasse=??';
 
-    function recupResultat(err,  rows, fields) {
-        if (err) throw err;
-        var result = [];
-        for (var i = 0; i < rows.length; i++) {
-                result = rows; //je stock le résultat dans une variable pour l'envoyer à la vue
-                //globalResult.push(i);
+    var inserts = [
+    pseudo,
+    motDePasse,
+    ];
+
+    requete_sql=sql.preparer(mysql,requete_sql,inserts);
+
+    con.query(requete_sql,function(err,results,fields){
+        if(err) throw err;
+        if (results.length>0){
+            serveur.session.loggedin=true;
+            serveur.session.userid=results[1];
+            console.log("connecté");
         }
+        else{
+            console.log("mot de passe et/ou identifiant incorrecte");
+        }
+    });
+};
+    // })
+    // function recupResultat(err,  rows, fields) {
+    //     if (err) throw err;
+    //     var result = [];
+    //     for (var i = 0; i < rows.length; i++) {
+    //             result = rows; //je stock le résultat dans une variable pour l'envoyer à la vue
+    //             //globalResult.push(i);
+    //     }
 
-        var test = JSON.stringify(result);
-        var json = JSON.parse(test);
+    //     var test = JSON.stringify(result);
+    //     var json = JSON.parse(test);
 
-        var mdp = "mot de passe";
+    //     var mdp = "mot de passe";
         
-        console.log(json.length);
-        // Gerer les erreurs (quand SELECT ne retourne rien)
+    //     console.log(json.length);
+    //     // Gerer les erreurs (quand SELECT ne retourne rien)
 
-        if(json.length > 0){
-            console.log("nom = ", json[0].nom);
-            console.log("mot de passe = ", json[0].motDePasse);
+    //     if(json.length > 0){
+    //         console.log("nom = ", json[0].nom);
+    //         console.log("mot de passe = ", json[0].motDePasse);
 
-            email = json[0].email;
+    //         email = json[0].email;
 
-            console.log(result);
+    //         console.log(result);
 
-            if(motDePasse == json[0].motDePasse){
-                console.log("OUI mot de passe VALIDE");
-            }
-            else{
-                console.log("NON mot de passe INVALIDE");
-            }
+    //         if(motDePasse == json[0].motDePasse){
+    //             console.log("OUI mot de passe VALIDE");
+    //         }
+    //         else{
+    //             console.log("NON mot de passe INVALIDE");
+    //         }
 
            //var n = comparePassword(motDePasse, json[0].motDePasse);
             /**
@@ -314,22 +336,22 @@ function connexion(pseudo, motDePasse){
                 }
             })
              */
-        }
+//         }
 
-        return result;
-    }   
+//         return result;
+//     }   
 
-    con.query(requete,  recupResultat);
+//     con.query(requete,  recupResultat);
     
-    console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+//     console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 
-    con.end(function (err) { 
-        if (err) throw err;
-        else  console.log('Fin de la connexion en BDD'); 
-    });
+//     con.end(function (err) { 
+//         if (err) throw err;
+//         else  console.log('Fin de la connexion en BDD'); 
+//     });
 
 
-}
+// }
 
 
 
