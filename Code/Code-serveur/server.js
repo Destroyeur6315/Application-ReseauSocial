@@ -2,7 +2,13 @@
 var express = require('express');
 var connexionBDD = require('./connection');
 var bodyParser = require("body-parser");
+const http = require('http');
 
+const app = express();
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const { dirname } = require('path');
+const io = new Server(server);
 
 // Varibale pour données du formulaire
 var nomFormulaire = "";
@@ -24,7 +30,6 @@ serveur.get('/inscription.html', function (req, res) {
 serveur.post('/inscription.html', function(req, res) {
     nomFormulaire = req.body.name;
     console.log("test =" + nomFormulaire);
-    
     traiter(nomFormulaire);
 });
 
