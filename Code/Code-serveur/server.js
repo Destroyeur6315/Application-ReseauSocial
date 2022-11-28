@@ -113,7 +113,7 @@ serveur.post('/connexion.html',function(req,res){
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
-    nomuser = req.body.name;
+    nomuser = req.session.userid;
     contenu = req.body.contenu;
     
     publication(nomuser,contenu);
@@ -125,7 +125,7 @@ serveur.listen(8080, function() {
 });
 
 
-function publication(donne){
+function publication(nomcreateur,contenu){
     var requete_sql = '\
   INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
   // ici, les valeurs prennent "??" lorsque nous insérons une chaîne de caractères
@@ -278,6 +278,7 @@ function connexion(req,pseudo, motDePasse){
     con.query(requete_sql,function(err,results,fields){
         if(err) throw err;
         if (results.length>0){
+            session=req.session;
             req.session.loggedin=true;
             req.session.userid=results[1];
             req.log("connecté");
