@@ -38,7 +38,7 @@ serveur.use(bodyParser.urlencoded({ extended: true }));
 serveur.use(express.static(path.join(__dirname, '..', 'Code-FrontEnd')));
 
 serveur.use(sessions({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    secret: generate_key,
     saveUninitialized:true,
     cookie: { maxAge: onehour },
     resave: false 
