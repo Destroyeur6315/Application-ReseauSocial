@@ -105,7 +105,7 @@ serveur.post('/connexion.html',function(req,res){
     }
      */
 
-    connexion2(pseudo, motdepasse);
+    connexion(pseudo, motdepasse);
 
     console.log(mdp);
     console.log(user);
