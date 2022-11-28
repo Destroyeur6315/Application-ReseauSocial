@@ -105,7 +105,7 @@ serveur.post('/connexion.html',function(req,res){
     }
      */
 
-    connexion(pseudo, motdepasse);
+    connexion(req,pseudo, motdepasse);
 
     console.log(mdp);
     console.log(user);
@@ -256,7 +256,7 @@ function connexion2(pseudo, motDePasse){
 }
 
 
-function connexion(pseudo, motDePasse){
+function connexion(req,pseudo, motDePasse){
     const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
 
     // Try to connect
@@ -278,9 +278,9 @@ function connexion(pseudo, motDePasse){
     con.query(requete_sql,function(err,results,fields){
         if(err) throw err;
         if (results.length>0){
-            serveur.session.loggedin=true;
-            serveur.session.userid=results[1];
-            console.log("connecté");
+            req.session.loggedin=true;
+            req.session.userid=results[1];
+            req.log("connecté");
         }
         else{
             console.log("mot de passe et/ou identifiant incorrecte");
