@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            AsciiGram
+        </title>
+        <link type="text/css" href="InscriptionEtConnexion.css" rel="stylesheet" media="all"/>
+    </head>
+    <body>
+
+    <div id="conteneur"> 
+
+        <div id="formulaire">
+
+            <form action="publiformulaire.html" method="post">
+
+                <fieldset>
+                    
+                    <!-- Titre du fieldset --> 
+                    <legend>Publication</legend> 
+                    <input type="hidden" name="nomform" id="nomform" content="publication">
+                    <label for="name">nom :</label>
+                    <br/> 
+                    <input type="text" name="name" id="name" placeholder="Ex : Romain" size="30" maxlength="10" />
+                    <br /> <br/> 
+                    <label for="contenu">Contenu</label>
+                    <br/>
+                    <input type="text" name="contenu" id="pass" />
+                    <br /> <br/>
+                    <label for="email">Adresse mail :</label>
+                    <br/>
+                    <input type="email" name="email" id="email" placeholder="Ex : bidule@gmail.com"/>
+                    <br/> 
+                </fieldset>
+
+                <div class="button">
+                    <button type="submit">Envoyer</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div id="connexion">
+            <a  href="connexion.html">Vous possèdez déjà un compte ? Cliquez içi</a> 
+        </div>
+
+    </div>   
+    
+    <script src="script.js"></script>
+
+    </body>
+</html>

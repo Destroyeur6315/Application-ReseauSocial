@@ -72,7 +72,6 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Front-end en progression (que HTML/CSS)
 - API en cours d'apprentissage 
 
-=======
 ***
 
 #### Avancement du projet le 18/10/2022 
@@ -100,5 +99,15 @@ Ainsi notre application serait visible sur n'importe quels supports. Il faudra j
 - Serveur Node.js et Application Express commencé
 - Inscription avec formulaire et sauvegarde des données en bdd (mysql sans sequelize -> requête SQL)
 - Quelques routes gérées (Commencement de l'API)
+
+***
+
+#### Avancé (21/11/2022)
+- Connexion qui avance (comparaison du mot de passe tapé avec celui en bdd ( retourne true or false))
+- Idée qui merge (session pour les utilisateurs)
+- Fonctionnalités des publicités commencées
+
+
+
 
 
