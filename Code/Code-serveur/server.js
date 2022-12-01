@@ -279,8 +279,8 @@ function connexion(req,pseudo, motDePasse){
         if(err) throw err;
         if (results.length>0){
             session=req.session;
-            req.session.loggedin=true;
-            req.session.userid=results[1];
+            session.loggedin=true;
+            session.userid=results[1];
             req.log("connecté");
         }
         else{
