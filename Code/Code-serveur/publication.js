@@ -17,7 +17,7 @@ var requete_sql = '\
 
 con.query(requete_sql,function(err,results,fields){
     if(err) throw err;
-    var c1=contenu1.textContent=results[0];
+    var c1=contenu1.textContent="test";
     var c2=contenu2.textContent=results[1];
     var c3=contenu3.textContent=results[2];
     var c4=contenu4.textContent=results[3];
