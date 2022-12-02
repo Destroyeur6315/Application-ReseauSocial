@@ -17,5 +17,12 @@ var requete_sql = '\
 
 con.query(requete_sql,function(err,results,fields){
     if(err) throw err;
-    document.
+    var c1=contenu1.textContent=results[0];
+    var c2=contenu2.textContent=results[1];
+    var c3=contenu3.textContent=results[2];
+    var c4=contenu4.textContent=results[3];
+    alert(c1);
+    alert(c2);
+    alert(c3);
+    alert(c4);
 });
