@@ -19,6 +19,7 @@ var session;
 let mdp;
 let user;
 
+
 // Instancier le serveur
 var serveur = express();
 
@@ -116,7 +117,7 @@ serveur.post('/publiformulaire.html', function(req, res) {
     nomuser = req.session.userid;
     contenu = req.body.contenu;
     
-    publication(nomuser,contenu);
+    publication(req,nomuser,contenu);
 });  
 
 // lancer notre serveur
@@ -125,15 +126,16 @@ serveur.listen(8080, function() {
 });
 
 
-function publication(nomcreateur,contenu){
+function publication(req,nomcreateur,contenu){
     var requete_sql = '\
-  INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
+  INSERT INTO publication (idcreateur,nomcreateur,contenu,dateecriture)'+
   // ici, les valeurs prennent "??" lorsque nous insérons une chaîne de caractères
   // et "?" lorsqu'il s'agit d'un nombre
-  'VALUES(??, ??, NOW())';
+  'VALUES(??,??, ??, NOW())';
     // l'array "inserts" contient, dans l'ordre d'apparition dans la requête, les éléments
     // qui doivent remplacer les points d'interrogation
     var inserts = [
+    req.session.userid,
     nomcreateur,
     contenu,
     ];
