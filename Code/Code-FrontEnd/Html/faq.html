@@ -1,103 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/faq.css"">
-    <script src="https://kit.fontawesome.com/79d05f40e5.js" crossorigin="anonymous"></script>
-    <title>ASCIIGRAM</title>
-</head>
-<body>
-    <header>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Css/faq.css"">
+        <script src="https://kit.fontawesome.com/79d05f40e5.js" crossorigin="anonymous"></script>
+        <title>ASCIIGRAM</title>
+    </head>
+    <body>
+        <header>
 
-        <nav>
+            <nav>
 
-            <h1 id="titre">ASCIIGRAM</h1>
+                <h1 id="titre">ASCIIGRAM</h1>
 
-            <div id="recherche">
+                <div id="recherche">
 
-                <input type="text" placeholder="Rechercher...">
+                    <input type="text" placeholder="Rechercher...">
+                    <button>OK</button>
+
+                </div>
+
+                <div id="onglets">
+
+                    <a href="asciigram.html"><i class="fa-solid fa-house"></i></a>
+                    <a href="messages.html"><i class="fa-solid fa-message"></i></a>
+                    <a href="faq.html"><i class="fa-solid fa-question"></i></a>
+                    <a href="like.html"><i class="fa-regular fa-thumbs-up"></i></a>
+
+                </div>
+
+            </nav>
+
+        </header>
+    <div id="container">
+        <div id="filter">
+            <h4>Recheche</h4>
+            <div id="rech">
+                <br>
+                <input type="text" placeholder="rechercher">
                 <button>OK</button>
-
             </div>
-
-            <div id="onglets">
-                <a href="asciigram.html"><i class="fa-solid fa-house"></i></a>
-                <a href="messages.html"><i class="fa-solid fa-message"></i></a>
-                <a href="faq.html"><i class="fa-solid fa-question"></i></a>
-                <a href="like.html"><i class="fa-regular fa-thumbs-up"></i></a>
-                <li class="deroulant" >
-                    <a href=#><i class="fa-solid fa-cog" ></i></a>
-                        <ul class="sous">
-                            <li>
-                                <a href="deconnexion.html" class="dessous" >Se deconnecter<i class="fa-solid fa-power-off"></i></a>
-                            </li>
-                            <li>
-                                <a href="confidentialite.html" class="dessous">Confidentialité<i class="fa-solid fa-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="apropos.html" class="dessous">A propos<i class="fa-solid fa-plus"></i></a>
-                            </li>
-                        </ul>
-                </li>
+            <br>
+            <h4>Date de parution</h4>
+            <div id="filtres">
+                <input type="radio" id="Date croissante" name="filtre">
+                <label for="Date croissante">Date croissante</label>
+                <input type="radio" id="Date décroissante" name="filtre">
+                <label for="Date décroissante">Date décroissante</label>
             </div>
-
-        </nav>
-
-    </header>
-<div id="container">
-    <div id="filter">
-        <h4>Recheche</h4>
-        <div id="rech">
+            <h4>Différents domaine d'activité recherché</h4>
+            <div id="domain">
+                <label for="web">développement Web</label>
+                <input type="checkbox" id="web" value="web">
+                <br>
+                <label for="application">Développement application</label>
+                <input type="checkbox" id="application" value="application">
+                <br>
+                <label for="quantique">Informatique quantique</label>
+                <input type="checkbox" id="quantique" value="quantique">
+                <br>
+                <label for="ia">nouveauté sur l'IA</label>
+                <input type="checkbox" id="ia" value="ia">
+            </div>
+            <div >
             <br>
-            <input type="text" placeholder="rechercher">
-            <button>OK</button>
+            <input type="submit" id="valider" value="Valider la recherche">
+            </div>
         </div>
-        <br>
-        <h4>Date de parution</h4>
-        <div id="filtres">
-            <input type="radio" id="Date croissante" name="filtre">
-            <label for="Date croissante">Date croissante</label>
-            <input type="radio" id="Date décroissante" name="filtre">
-            <label for="Date décroissante">Date décroissante</label>
-        </div>
-        <h4>Différents domaine d'activité recherché</h4>
-        <div id="domain">
-            <label for="web">développement Web</label>
-            <input type="checkbox" id="web" value="web">
-            <br>
-            <label for="application">Développement application</label>
-            <input type="checkbox" id="application" value="application">
-            <br>
-            <label for="quantique">Informatique quantique</label>
-            <input type="checkbox" id="quantique" value="quantique">
-            <br>
-            <label for="ia">nouveauté sur l'IA</label>
-            <input type="checkbox" id="ia" value="ia">
-        </div>
-        <div >
-        <br>
-        <input type="submit" id="valider" value="Valider la recherche">
+        <div id="Faq">
+            <div class="message">
+                <h4>Lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
+            </div>
+            <div class="message">
+                <h4>Lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
+            </div>
+            <div class="message">
+                <h4>Lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
+            </div>
+            <div class="message">
+                <h4>Lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
+            </div>
         </div>
     </div>
-    <div id="Faq">
-        <div class="message">
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-        </div>
-        <div class="message">
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-        </div>
-        <div class="message">
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-        </div>
-        <div class="message">
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-        </div>
-    </div>
-</div>
 </body>
