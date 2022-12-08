@@ -4,7 +4,8 @@ const path = require('path');
 var bodyParser = require("body-parser");
 var sessions = require('express-session');
 const cookieParser = require("cookie-parser");
-const mysql = require('mysql');
+const mysql = require('mysql2/promise');
+const bluebird = require('bluebird');
 var crypto = require('crypto');
 const { Server } = require('http');
 const { response } = require('express');
@@ -18,6 +19,13 @@ const mypassword = 'destro'
 var session;
 let mdp;
 let user;
+let nom;
+
+// variable pour connexion à la base de donnée
+nomHost = "localhost";
+nomUser = "romainSAE";
+leMDP = "guerre";
+laDatabase = "romain_application";
 
 // Instancier le serveur
 var serveur = express();
@@ -106,7 +114,9 @@ serveur.post('/connexion.html',function(req,res){
      */
 
     //await connexion2(pseudo, motdepasse);
-    await connexion(req, res, pseudo, motdepasse);
+    connexion(req, res, pseudo, motdepasse);
+
+    console.log("test nom =" + nom);
     /** 
     async function data(req, res){
         try{
@@ -130,7 +140,7 @@ serveur.post('/connexion.html',function(req,res){
     data();
     */
 
-    console.log(req.session);
+    //console.log("test = ");
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
@@ -161,7 +171,7 @@ function publication(donne){
 
     const mysql = require('mysql');
 
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" })
+    const con = mysql.createConnection({   host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase })
 
     con.connect(function(err) {   
         if (err) throw err;   
@@ -177,13 +187,13 @@ function publication(donne){
         });
 }
 
-function createtable(){
-        const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+async function createtable(){
+        const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
 
         // Try to connect
-        con.connect(function(err) {   
-            if (err) throw err;     
-        });
+        //con.connect(function(err) {   
+        //    if (err) throw err;     
+        //});
 
         // Requête sql
         let supprimertable = "DROP TABLE IF EXISTS user;"
@@ -195,7 +205,15 @@ function createtable(){
                                     numTelephone varchar(20)\
                                     );"
 
+
+        const test = await con.execute(supprimertable);
+        const test2 = await con.execute(createtable);
+
+        console.log("*************************");
+
+
         // Lancer les requêtes
+        /** 
         con.query(
             supprimertable,
             function (err, result) {
@@ -214,10 +232,15 @@ function createtable(){
             if (err) throw err;
             else  console.log('Création de la table USER avec succés.'); 
         });
+        */
 }
 
-function insertUser(requete){
-        const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+async function insertUser(requete){
+        const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
+
+         const test3 = await con.execute(requete);
+/** 
+        const con = mysql.createConnection({   host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase });
 
         // Try to connect
         con.connect(function(err) {   
@@ -236,10 +259,11 @@ function insertUser(requete){
             if (err) throw err;
             else  console.log('Nouveau utilisateur ajouté à la BASE DE DONNEES avec succès !'); 
         });
+        */
 }
 
 function connexion2(pseudo, motDePasse){
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+    const con = mysql.createConnection({    host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase });
 
     let validation = "INVALIDE";
 
@@ -278,18 +302,47 @@ function connexion2(pseudo, motDePasse){
 
 
 async function connexion(req, res, pseudo, motDePasse){
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+    const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
 
+    const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', ["romain", "guerre"]);
+
+    //console.log(fields);
+    //console.log(rows);
+
+    var test = JSON.stringify(rows);
+    var json = JSON.parse(test);
+
+    nom = await json[0].nom;
+
+    console.log(json[0].nom);
+    console.log("nom = " + nom);
+
+    console.log("*******************");
+
+    return rows;
+
+    //const con = mysql.createConnection({    host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase });
+    /** 
     // Try to connect
     con.connect(function(err) {   
         if (err) throw err;   
         console.log("Connecté à la base de données MySQL!");  
     });
 
+    const [rows, fields] = await con.query('SELECT * FROM user WHERE nom = ? AND motdepasse > ?', [pseudo, motDePasse]);
+
+    
+    con.end(function (err) { 
+        if (err) throw err;
+        else  console.log('Fin de la connexion en BDD'); 
+    });
+
+    console.log("test ======" + rows);
+
+    /** 
     var requete_sql = '\
         SELECT * FROM user WHERE nom="' + pseudo + '" AND motdepasse="' + motDePasse + '";';
 
-    /** 
     var inserts = [
     pseudo,
     motDePasse,
@@ -306,7 +359,20 @@ async function connexion(req, res, pseudo, motDePasse){
     }
 
     requete_sql = preparer(mysql,requete_sql,inserts);
-    */
+    
+
+    
+    function maFonction(param1, param2, callback){
+        var result;
+        var err;
+        
+        callback(err, result);
+    }
+    
+    maFonction("param1", "param2", function(err, result){
+        doSomethingWithResult(result);
+        doSomethingWithError(err);
+    }); 
 
     const donne = await con.query(requete_sql, function(err,results,fields){
         console.log(results);
@@ -331,19 +397,17 @@ async function connexion(req, res, pseudo, motDePasse){
         }
     });
 
+    */
+
     //console.log(donne);
 
-     con.end(function (err) { 
-        if (err) throw err;
-        else  console.log('Fin de la connexion en BDD'); 
-    });
     
 }
 
 
 
 function connexion3(pseudo, motDePasse){
-    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+    const con = mysql.createConnection({    host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase });
 
     // Try to connect
     con.connect(function(err) {   
