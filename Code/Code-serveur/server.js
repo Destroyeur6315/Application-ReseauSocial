@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const mysql = require('mysql');
 var crypto = require('crypto');
 const { Server } = require('http');
+const { response } = require('express');
 
 // var connexionBDD = require('./connection');
 
@@ -104,11 +105,32 @@ serveur.post('/connexion.html',async function(req,res){
     }
      */
 
-    await connexion2(pseudo, motdepasse);
+    //await connexion2(pseudo, motdepasse);
+    await connexion(req, res, pseudo, motdepasse);
+    /** 
+    async function data(req, res){
+        try{
+            const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+            
+            const donne = await con.query(
+                'SELECT * FROM user WHERE nom="' + romain + '" AND motdepasse="' + roro + '";',
+                (error, results) => {
+                    if(error){
+                        res.json({ error });
+                    }else {
+                        res.status(200).json({result});
+                    }
+                }
 
-    console.log(mdp);
-    console.log(user);
+            )}catch(err){
+                res.status(500).json({ error : err})
+            }
+        }       
 
+    data();
+    */
+
+    console.log(req.session);
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
@@ -255,7 +277,72 @@ function connexion2(pseudo, motDePasse){
 }
 
 
-function connexion(pseudo, motDePasse){
+async function connexion(req, res, pseudo, motDePasse){
+    const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+
+    // Try to connect
+    con.connect(function(err) {   
+        if (err) throw err;   
+        console.log("Connecté à la base de données MySQL!");  
+    });
+
+    var requete_sql = '\
+        SELECT * FROM user WHERE nom="' + pseudo + '" AND motdepasse="' + motDePasse + '";';
+
+    /** 
+    var inserts = [
+    pseudo,
+    motDePasse,
+    ];
+
+    function preparer(mysql, requete_sql, inserts) {
+        requete_sql = mysql.format(requete_sql, inserts)
+        // nous utilisons la méthode .remplace avec une expression régulière
+        // pour supprimer les accents graves et les points
+        .replace(/`/g, "'")
+        .replace(/'\.'/g, ".")
+        .replace(/'/g, "\\'");
+        return requete_sql;
+    }
+
+    requete_sql = preparer(mysql,requete_sql,inserts);
+    */
+
+    const donne = await con.query(requete_sql, function(err,results,fields){
+        console.log(results);
+        if(err) throw err;
+        if (results.length>0){
+             var test = JSON.stringify(results);
+             var json = JSON.parse(test);
+
+            session=req.session;
+            session.loggedin=true;
+            session.userid = pseudo;
+            session.userMotDepasse = motDePasse;
+            session.email = json[0].email;
+            //session.userid=results[1];
+            console.log(req.session);
+            res.status(200).json({ results });
+            //res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html'));
+        }
+        else{
+            console.log(req.session);
+            res.send("mot de passe et/ou identifiant incorrecte");
+        }
+    });
+
+    //console.log(donne);
+
+     con.end(function (err) { 
+        if (err) throw err;
+        else  console.log('Fin de la connexion en BDD'); 
+    });
+    
+}
+
+
+
+function connexion3(pseudo, motDePasse){
     const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
 
     // Try to connect
