@@ -321,6 +321,7 @@ function connexion(pseudo, motDePasse){
 
     con.query(requete,  recupResultat);
     
+    
     console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 
     con.end(function (err) { 
