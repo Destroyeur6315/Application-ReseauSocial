@@ -18,7 +18,7 @@ const mypassword = 'destro'
 var session;
 let mdp;
 let user;
-
+var result;
 
 // Instancier le serveur
 var serveur = express();
@@ -277,18 +277,18 @@ function connexion(req,pseudo, motDePasse){
 
     requete_sql=sql.preparer(mysql,requete_sql,inserts);
 
-    con.query(requete_sql,function(err,results,fields){
+    const rows =con.query(requete_sql,function(err,results,fields){
         if(err) throw err;
         if (results.length>0){
-            session=req.session;
-            session.loggedin=true;
-            session.userid=results[1];
+            req.sessions.loggedin=true;
+            req.sessions.userid=results[1];
             req.log("connecté");
         }
         else{
             console.log("mot de passe et/ou identifiant incorrecte");
         }
     });
+
 };
     // })
     // function recupResultat(err,  rows, fields) {
