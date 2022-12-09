@@ -114,9 +114,9 @@ serveur.post('/connexion.html',function(req,res){
      */
 
     //await connexion2(pseudo, motdepasse);
-    connexion(req, res, pseudo, motdepasse);
+    let data = connexion(req, res, pseudo, motdepasse);
 
-    console.log("test nom =" + nom);
+    console.log("test data =" + data);
     /** 
     async function data(req, res){
         try{
@@ -300,14 +300,15 @@ function connexion2(pseudo, motDePasse){
 
 }
 
-
+// Voir évènements
+// Voir comment envoyer données directement dans les vues
 async function connexion(req, res, pseudo, motDePasse){
     const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
 
     const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', ["romain", "guerre"]);
 
     //console.log(fields);
-    //console.log(rows);
+    console.log(rows);
 
     var test = JSON.stringify(rows);
     var json = JSON.parse(test);
