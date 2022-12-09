@@ -27,7 +27,7 @@ var generate_key = function() {
 };
 
 // Création des tables
-createtable();
+//createtable();
 
 // Middleware
 // Utilise le module de parsing
@@ -106,7 +106,7 @@ serveur.post('/connexion.html',async function(req,res){
      */
 
     //await connexion2(pseudo, motdepasse);
-    await connexion(req, res, pseudo, motdepasse);
+    //await connexion(req, res, pseudo, motdepasse);
     /** 
     async function data(req, res){
         try{
@@ -141,10 +141,9 @@ serveur.post('/publiformulaire.html', function(req, res) {
 });  
 
 // lancer notre serveur
-serveur.listen(8080, function() {
+serveur.listen(3000, function() {
     console.log('Serveur en écoute à l\'adresse suivant : http://localhost:8080/ ...');
 });
-
 
 function publication(donne){
     var requete_sql = '\
@@ -340,9 +339,20 @@ async function connexion(req, res, pseudo, motDePasse){
     
 }
 
+function asynqQuery(query, params) {
+    return new Promise((resolve, reject) =>{
+        con.query(query, params, (err, result) => {
+            if (err)
+                return reject(err);
+            resolve(result);
+        });
+    });
+}
 
 
-function connexion3(pseudo, motDePasse){
+
+
+async function connexion3(pseudo, motDePasse){
     const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
 
     // Try to connect
@@ -405,8 +415,12 @@ function connexion3(pseudo, motDePasse){
 
         return result;
     }   
-
-    con.query(requete,  recupResultat);
+    try {
+        const response = await asynqQuery(requete, recupResultat);
+        console.log(response);
+    } catch (e) {
+        console.error
+    }
     
     
     console.log("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
@@ -488,4 +502,4 @@ function connexion3(pseudo, motDePasse){
             
     //         break;
 
-    // }
+    // } */
