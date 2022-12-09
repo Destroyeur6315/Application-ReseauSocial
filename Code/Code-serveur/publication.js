@@ -1,3 +1,5 @@
+const mysql=require('mysql')
+
 const contenu1=document.getElementById("contenu1")
 const contenu2=document.getElementById("contenu1")
 const contenu3=document.getElementById("contenu1")
@@ -17,7 +19,7 @@ var requete_sql = '\
 
 con.query(requete_sql,function(err,results,fields){
     if(err) throw err;
-    var c1=contenu1.textContent="test";
+    var c1=contenu1.textContent=result[0];
     var c2=contenu2.textContent=results[1];
     var c3=contenu3.textContent=results[2];
     var c4=contenu4.textContent=results[3];
