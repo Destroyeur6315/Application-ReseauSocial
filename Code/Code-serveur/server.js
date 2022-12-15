@@ -9,6 +9,7 @@ const bluebird = require('bluebird');
 var crypto = require('crypto');
 const { Server } = require('http');
 const { response } = require('express');
+const console = require('console');
 
 // var connexionBDD = require('./connection');
 
@@ -97,9 +98,78 @@ serveur.get('/connexion.html',(req,res)=>{
 });
 */
 
-serveur.post('/connexion.html',function(req,res){
+serveur.post('/connexion.html', async function(req, res, next){
     pseudo=req.body.pseudo;
     motdepasse=req.body.pass;
+
+    const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
+
+    const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
+
+    var test = JSON.stringify(rows);
+    var json = JSON.parse(test);
+
+    nom = await json[0].nom;
+
+    console.log(nom);
+
+    res.redirect('http://localhost:8080/romainProfil.html')
+
+    //document=path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html');
+
+    //const contenu1= document.getElementById("name");
+
+    //console.log("contenu1 =" + contenu1);
+
+    //console.log(nom);
+    /** 
+    const mysql = require('mysql');
+
+    const con = mysql.createConnection({   host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase })
+
+    con.connect(function(err) {   
+        if (err) throw err;   
+        console.log("Connecté à la base de données MySQL!");   
+    });
+
+    requete_sql = 'SELECT * FROM user WHERE nom = "' + pseudo  + '" AND motdepasse = "' + motdepasse +'"';
+
+    //requete_sql = sql.preparer(mysql, requete_sql, inserts);
+    await con.query(
+        requete_sql,
+        function (err, result) {
+            if(err){
+                throw err;
+            } 
+
+            var test = JSON.stringify(result);
+
+            console.log(test);
+            //var json = JSON.parse(test);
+
+            res.send(test)
+    });
+
+    next();
+
+    /**
+    const con = mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
+
+    const rows = con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
+
+    //console.log(fields);
+    console.log(rows);
+
+    var test = JSON.stringify(rows);
+    var json = JSON.parse(test);
+
+    nom = json[0].nom;
+
+    console.log(json[0].nom);
+    console.log("nom = " + nom);
+
+    console.log("*******************");
+     */
 
     /**
     if(pseudo == myusername && motdepasse == mypassword){
@@ -114,9 +184,9 @@ serveur.post('/connexion.html',function(req,res){
      */
 
     //await connexion2(pseudo, motdepasse);
-    let data = connexion(req, res, pseudo, motdepasse);
+    //let data = connexion(req, res, pseudo, motdepasse);
 
-    console.log("test data =" + data);
+    //console.log("test data =" + data);
     /** 
     async function data(req, res){
         try{
@@ -141,6 +211,24 @@ serveur.post('/connexion.html',function(req,res){
     */
 
     //console.log("test = ");
+
+    affiche(nom)
+
+    next()
+});
+
+function affiche(nom){
+    console.log("test =" + nom)
+}
+
+serveur.get('/romainProfil.html', function(req, res){
+    console.log("test dans get romain profil = " + nom)
+    res.cookie(nom);
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html'))
+});
+
+serveur.post('/connexion.html',function(req, res, next){
+    //console.log("test nom= " + nom);
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
@@ -307,6 +395,7 @@ async function connexion(req, res, pseudo, motDePasse){
 
     const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', ["romain", "guerre"]);
 
+    
     //console.log(fields);
     console.log(rows);
 

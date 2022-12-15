@@ -215,6 +215,18 @@
     <footer>
 
     </footer>
+
+    <script>
+        console.log("test html profil")
+
+        fetch('http://localhost:8080/connexion.html')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("name").innerHTML = data.nom;
+            console.log("test" + data);
+            console.log("blabalablabalb");
+        })
+    </script>
     
 </body>
 </html>
