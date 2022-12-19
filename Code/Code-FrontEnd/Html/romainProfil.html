@@ -217,6 +217,8 @@
 
     <script>
 
+        const monTexte = document.getElementById('name');
+
         function getData() {
 
             // Créer une nouvelle instance de l'objet XMLHttpRequest
@@ -237,9 +239,9 @@
                     const data = xhr.response;
 
                     console.log('data = ' + data); // type Object
-                    console.log("test innerTHML" + data["nom"]);  // récupérer la valeur dont la clé vaut "nom"
+                    console.log("test innerTHML" + data["userpseudo"]);  // récupérer la valeur dont la clé vaut "nom"
 
-                    monTexte.innerHTML =  data["nom"]; // modification du front avec la données
+                    monTexte.innerHTML =  data["userpseudo"]; // modification du front avec la données
                     console.log(monTexte);
 
                 }

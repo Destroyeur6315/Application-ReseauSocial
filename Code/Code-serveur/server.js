@@ -7,26 +7,24 @@ const cookieParser = require("cookie-parser");
 const mysql = require('mysql2/promise');
 const bluebird = require('bluebird');
 var crypto = require('crypto');
-const { Server } = require('http');
-const { response } = require('express');
 const console = require('console');
+const { time } = require('console');
+const { TimeoutError } = require('sequelize');
+//const { Server } = require('http');
 
-// var connexionBDD = require('./connection');
 
-// Definition de variable
+// Definition de variable globale
 const onehour= 1000*60*60;
-const myusername = 'romain'
-const mypassword = 'destro'
-var session;
-let mdp;
-let user;
 let nom;
+var session;
+
 
 // variable pour connexion à la base de donnée
 nomHost = "localhost";
 nomUser = "romainSAE";
 leMDP = "guerre";
 laDatabase = "romain_application";
+
 
 // Instancier le serveur
 var serveur = express();
@@ -38,7 +36,8 @@ var generate_key = function() {
 // Création des tables
 createtable();
 
-// Middleware
+////////// Middleware \\\\\\\\\\
+
 // Utilise le module de parsing
 serveur.use(express.json());
 serveur.use(bodyParser.urlencoded({ extended: true }));
@@ -46,6 +45,7 @@ serveur.use(bodyParser.urlencoded({ extended: true }));
 // Accéder aux Css et aux images
 serveur.use(express.static(path.join(__dirname, '..', 'Code-FrontEnd')));
 
+// Instancier les sessions
 serveur.use(sessions({
     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
     saveUninitialized:true,
@@ -56,7 +56,8 @@ serveur.use(sessions({
 // cookie parser middleware
 serveur.use(cookieParser());
 
-// Definition des routes
+////////// Définiton des routes \\\\\\\\\\
+// Méthode HTTP -> GET
 serveur.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
 });
@@ -67,6 +68,7 @@ serveur.get('/deconnection',(req,res) => {
 });
 
 serveur.get('/connexion.html',function(req,res){
+    session=req.session;
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
 });
 
@@ -74,6 +76,15 @@ serveur.get('/publiformulaire.html',function(req,res){
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/publiformulaire.html'))
 });
 
+serveur.get('/romainProfil.html', function(req, res){
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html'))
+});
+
+serveur.get('/romainProfildonne', function(req, res){
+    res.status(200).send(session);
+});
+
+// Méthode HTTP -> POST
 serveur.post('/inscription.html', function(req, res) {
     pseudo=req.body.pseudo;
     passwd=req.body.pass;
@@ -92,11 +103,6 @@ serveur.post('/inscription.html', function(req, res) {
     insertUser(requeteAddUser);
 });
 
-/** 
-serveur.get('/connexion.html',(req,res)=>{
-    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
-});
-*/
 
 serveur.post('/connexion.html', async function(req, res, next){
     pseudo=req.body.pseudo;
@@ -106,6 +112,7 @@ serveur.post('/connexion.html', async function(req, res, next){
 
     const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
 
+    // transformer le résultat de la requête en json
     var test = JSON.stringify(rows);
     var json = JSON.parse(test);
 
@@ -113,127 +120,18 @@ serveur.post('/connexion.html', async function(req, res, next){
 
     console.log(nom);
 
-    res.redirect('http://localhost:8080/romainProfil.html')
+    session=req.session;
+    session.loggedin=true;
+    session.userid = await json[0].id;
+    session.userpseudo = await json[0].nom;
+    session.userMotDepasse = await json[0].motDePasse;
+    session.email = json[0].email;
+    session.numero = json[0].numTelephone;
 
-    //document=path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html');
+    console.log(session);
 
-    //const contenu1= document.getElementById("name");
-
-    //console.log("contenu1 =" + contenu1);
-
-    //console.log(nom);
-    /** 
-    const mysql = require('mysql');
-
-    const con = mysql.createConnection({   host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase })
-
-    con.connect(function(err) {   
-        if (err) throw err;   
-        console.log("Connecté à la base de données MySQL!");   
-    });
-
-    requete_sql = 'SELECT * FROM user WHERE nom = "' + pseudo  + '" AND motdepasse = "' + motdepasse +'"';
-
-    //requete_sql = sql.preparer(mysql, requete_sql, inserts);
-    await con.query(
-        requete_sql,
-        function (err, result) {
-            if(err){
-                throw err;
-            } 
-
-            var test = JSON.stringify(result);
-
-            console.log(test);
-            //var json = JSON.parse(test);
-
-            res.send(test)
-    });
-
-    next();
-
-    /**
-    const con = mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
-
-    const rows = con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
-
-    //console.log(fields);
-    console.log(rows);
-
-    var test = JSON.stringify(rows);
-    var json = JSON.parse(test);
-
-    nom = json[0].nom;
-
-    console.log(json[0].nom);
-    console.log("nom = " + nom);
-
-    console.log("*******************");
-     */
-
-    /**
-    if(pseudo == myusername && motdepasse == mypassword){
-        session=req.session;
-        session.userid=pseudo;
-        console.log(req.session);
-        res.send(`Hey there, welcome <a href=\'/deconnection'>click to logout</a>`);
-    }
-    else{
-        res.send('Invalid username or password');
-    }
-     */
-
-    //await connexion2(pseudo, motdepasse);
-    //let data = connexion(req, res, pseudo, motdepasse);
-
-    //console.log("test data =" + data);
-    /** 
-    async function data(req, res){
-        try{
-            const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
-            
-            const donne = await con.query(
-                'SELECT * FROM user WHERE nom="' + romain + '" AND motdepasse="' + roro + '";',
-                (error, results) => {
-                    if(error){
-                        res.json({ error });
-                    }else {
-                        res.status(200).json({result});
-                    }
-                }
-
-            )}catch(err){
-                res.status(500).json({ error : err})
-            }
-        }       
-
-    data();
-    */
-
-    //console.log("test = ");
-
-    affiche(nom)
-
-    next()
-});
-
-function affiche(nom){
-    console.log("test =" + nom)
-}
-
-serveur.get('/romainProfil.html', function(req, res){
-    console.log("test dans get romain profil = " + nom)
-    res.cookie(nom);
-    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html'))
-});
-
-serveur.get('/romainProfildonne', function(req, res){
-    console.log("test dans /romainProfildonne de nom :" + nom);
-    res.status(200).json({nom});
-});
-
-serveur.post('/connexion.html',function(req, res, next){
-    //console.log("test nom= " + nom);
+    // redirige vers la page d'accueil
+    res.redirect('http://localhost:8080/romainProfil.html');
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
@@ -247,7 +145,6 @@ serveur.post('/publiformulaire.html', function(req, res) {
 serveur.listen(8080, function() {
     console.log('Serveur en écoute à l\'adresse suivant : http://localhost:8080/ ...');
 });
-
 
 function publication(donne){
     var requete_sql = '\
@@ -283,11 +180,6 @@ function publication(donne){
 async function createtable(){
         const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
 
-        // Try to connect
-        //con.connect(function(err) {   
-        //    if (err) throw err;     
-        //});
-
         // Requête sql
         let supprimertable = "DROP TABLE IF EXISTS user;"
         let createtable = "CREATE TABLE user(\
@@ -301,31 +193,6 @@ async function createtable(){
 
         const test = await con.execute(supprimertable);
         const test2 = await con.execute(createtable);
-
-        console.log("*************************");
-
-
-        // Lancer les requêtes
-        /** 
-        con.query(
-            supprimertable,
-            function (err, result) {
-                if(err) throw err;
-                console.log(result);
-        });
-
-        con.query(
-            createtable,
-            function (err, result) {
-                if (err) throw err;       
-                console.log(result);    
-        });
-
-        con.end(function (err) { 
-            if (err) throw err;
-            else  console.log('Création de la table USER avec succés.'); 
-        });
-        */
 }
 
 async function insertUser(requete){
@@ -499,8 +366,6 @@ async function connexion(req, res, pseudo, motDePasse){
     
 }
 
-
-
 function connexion3(pseudo, motDePasse){
     const con = mysql.createConnection({    host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase });
 
@@ -647,3 +512,100 @@ function connexion3(pseudo, motDePasse){
     //         break;
 
     // }
+
+    //document=path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html');
+
+    //const contenu1= document.getElementById("name");
+
+    //console.log("contenu1 =" + contenu1);
+
+    //console.log(nom);
+    /** 
+    const mysql = require('mysql');
+
+    const con = mysql.createConnection({   host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase })
+
+    con.connect(function(err) {   
+        if (err) throw err;   
+        console.log("Connecté à la base de données MySQL!");   
+    });
+
+    requete_sql = 'SELECT * FROM user WHERE nom = "' + pseudo  + '" AND motdepasse = "' + motdepasse +'"';
+
+    //requete_sql = sql.preparer(mysql, requete_sql, inserts);
+    await con.query(
+        requete_sql,
+        function (err, result) {
+            if(err){
+                throw err;
+            } 
+
+            var test = JSON.stringify(result);
+
+            console.log(test);
+            //var json = JSON.parse(test);
+
+            res.send(test)
+    });
+
+    next();
+
+    /**
+    const con = mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
+
+    const rows = con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
+
+    //console.log(fields);
+    console.log(rows);
+
+    var test = JSON.stringify(rows);
+    var json = JSON.parse(test);
+
+    nom = json[0].nom;
+
+    console.log(json[0].nom);
+    console.log("nom = " + nom);
+
+    console.log("*******************");
+     */
+
+    /**
+    if(pseudo == myusername && motdepasse == mypassword){
+        session=req.session;
+        session.userid=pseudo;
+        console.log(req.session);
+        res.send(`Hey there, welcome <a href=\'/deconnection'>click to logout</a>`);
+    }
+    else{
+        res.send('Invalid username or password');
+    }
+    */
+
+    //await connexion2(pseudo, motdepasse);
+    //let data = connexion(req, res, pseudo, motdepasse);
+
+    //console.log("test data =" + data);
+    /** 
+    async function data(req, res){
+        try{
+            const con = mysql.createConnection({   host: "localhost",   user: "root",   password: "root",   database : "romain_application" });
+            
+            const donne = await con.query(
+                'SELECT * FROM user WHERE nom="' + romain + '" AND motdepasse="' + roro + '";',
+                (error, results) => {
+                    if(error){
+                        res.json({ error });
+                    }else {
+                        res.status(200).json({result});
+                    }
+                }
+
+            )}catch(err){
+                res.status(500).json({ error : err})
+            }
+        }       
+
+    data();
+    */
+
+    //console.log("test = ");
