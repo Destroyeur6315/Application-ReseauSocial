@@ -216,17 +216,13 @@
     </footer>
 
     <script>
-        console.log("test html profil")
-
-        const monTexte = document.getElementById('name');
-        console.log(monTexte.innerText);
-
-        // mettre le nom tapé en bdd
-        //monTexte.innerHTML = "nouveau nom";
 
         function getData() {
 
+            // Créer une nouvelle instance de l'objet XMLHttpRequest
             const xhr = new XMLHttpRequest();
+            
+             // Ouvrir une requête HTTP GET vers l'URL spécifiée
             xhr.open('GET', '/romainProfildonne');
 
             // Définir le type de données attendu dans la réponse
@@ -240,30 +236,21 @@
                     // Récupérer les données JSON de la réponse
                     const data = xhr.response;
 
-                    console.log('data = ' + data);
+                    console.log('data = ' + data); // type Object
+                    console.log("test innerTHML" + data["nom"]);  // récupérer la valeur dont la clé vaut "nom"
 
-                    let html ='';
-
-                    console.log("test innerTHML" + data["nom"]); 
-
-                    console.log("html = " + html);
-
-                    // Générer du contenu HTML à partir des données
-                    //const html = generateHTML(data);
-
-                    monTexte.innerHTML =  data["nom"];
+                    monTexte.innerHTML =  data["nom"]; // modification du front avec la données
                     console.log(monTexte);
 
-                    // Insérer le contenu HTML dans un élément de la page
-                    //const container = document.getElementById('container');
-                    //container.innerHTML = html;
-                } else {
-                // Afficher une erreur en cas de problème avec la requête
-                console.error(xhr.statusText);
+                }
+                else {
+                    // Afficher une erreur en cas de problème avec la requête
+                    console.error(xhr.statusText);
                 }
             };
         }
 
+        // Appeler la fonction getData lorsque la page est chargée
         window.onload = getData;
 
     </script>
