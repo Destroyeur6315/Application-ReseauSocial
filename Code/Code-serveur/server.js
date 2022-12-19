@@ -224,7 +224,13 @@ function affiche(nom){
 serveur.get('/romainProfil.html', function(req, res){
     console.log("test dans get romain profil = " + nom)
     res.cookie(nom);
+    //res.status(200).json({nom});
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html'))
+});
+
+serveur.get('/romainProfildonne', function(req, res){
+    console.log("test dans /romainProfildonne de nom :" + nom);
+    res.status(200).json({nom});
 });
 
 serveur.post('/connexion.html',function(req, res, next){

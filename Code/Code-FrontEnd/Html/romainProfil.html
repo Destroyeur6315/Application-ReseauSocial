@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -219,13 +218,54 @@
     <script>
         console.log("test html profil")
 
-        fetch('http://localhost:8080/connexion.html')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("name").innerHTML = data.nom;
-            console.log("test" + data);
-            console.log("blabalablabalb");
-        })
+        const monTexte = document.getElementById('name');
+        console.log(monTexte.innerText);
+
+        // mettre le nom tapé en bdd
+        //monTexte.innerHTML = "nouveau nom";
+
+        function getData() {
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '/romainProfildonne');
+
+            // Définir le type de données attendu dans la réponse
+            xhr.responseType = 'json';
+
+            // Envoyer la requête
+            xhr.send();
+
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    // Récupérer les données JSON de la réponse
+                    const data = xhr.response;
+
+                    console.log('data = ' + data);
+
+                    let html ='';
+
+                    console.log("test innerTHML" + data["nom"]); 
+
+                    console.log("html = " + html);
+
+                    // Générer du contenu HTML à partir des données
+                    //const html = generateHTML(data);
+
+                    monTexte.innerHTML =  data["nom"];
+                    console.log(monTexte);
+
+                    // Insérer le contenu HTML dans un élément de la page
+                    //const container = document.getElementById('container');
+                    //container.innerHTML = html;
+                } else {
+                // Afficher une erreur en cas de problème avec la requête
+                console.error(xhr.statusText);
+                }
+            };
+        }
+
+        window.onload = getData;
+
     </script>
     
 </body>
