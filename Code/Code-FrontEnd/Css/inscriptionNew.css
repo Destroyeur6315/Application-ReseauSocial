@@ -1,0 +1,195 @@
+body{
+    background-color: #F5F5F5;
+}
+
+.containerTitrePrincipale{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: 1px black solid;
+}
+
+.photoRond{
+    width: 100px;
+}
+
+.droite{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+img{
+    width: 60px;
+    height: 60px;
+}
+
+#bigConteneur{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+}
+
+#conteneur{
+    display: flex;
+    flex-direction: row;
+    min-width: 1000px;
+    min-height: 500px;
+    box-shadow: 1px 1px 12px #555;
+}
+
+#formulaire{
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#inscription{
+    background: linear-gradient(to bottom right, red, orange);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    width: 85%;
+    height: 85%;
+}
+
+legend{
+    font-size: 2em;
+    font-family: SFMono-Regular;
+    margin-bottom: 15px;
+}
+
+.champsFormulaire{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+}
+
+.petitContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 1.2em;
+    padding-bottom: 5px;
+    font-family: "Apple Color Emoji";
+}
+
+input{
+    border-radius: 20px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    background-color: rgba(243, 243, 243, 0.879);
+    font-size: 1em;
+}
+
+input:focus{
+    outline: none;
+    background-color: rgba(231, 227, 227, 0.879);
+}
+
+.button{
+    margin: 5px;
+    padding: 15px;
+    border-radius: 20px;
+    color: white;
+    background: linear-gradient(to bottom right, red, orange);
+    border: none;
+}
+
+.button:hover{
+    background: black;
+}
+
+.inscriptionContainer{
+    width: 70%;
+    height: 35%;
+}
+
+.inscriptionContainer h2{
+    font-size: 2.5em;
+    font-family: sans-serif;
+    color: white;
+}
+
+.inscriptionContainer p{
+    font-size: 1em;
+    font-family: sans-serif;
+    color: white;
+}
+
+.inscriptionTitre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-height: 30%;
+}
+
+.inscriptionParagraphe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.inscriptionLien{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.inscriptionLien a {
+    border: 1px white solid;
+    text-decoration-line: none;
+    padding: 15px 20px 15px 20px;
+    border-radius: 30px;
+    font-family: sans-serif;
+    color: white;
+    margin-top: 5px;
+}
+
+.inscriptionLien a:hover{
+    background-color: white;
+    color: black;
+}
+
+@media (max-width: 1100px) {
+
+    #conteneur{
+        flex-direction: column;
+        min-width: 500px;
+        box-shadow: 1px 1px 12px #555;
+    }
+
+    #formulaire{
+        width: 100%;
+        min-height: 450px;
+    }
+
+    #inscription{
+        width: 100%;
+        min-height: 350px;
+    }
+
+    .button{
+        margin-top: 20px;
+    }
+
+}
