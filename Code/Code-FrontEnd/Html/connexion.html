@@ -5,39 +5,84 @@
         <title>
             AsciiGram
         </title>
-        <link type="text/css" href="../Css/InscriptionEtConnexion.css" rel="stylesheet" media="all"/>
-        <link type="text/css" href="../Css/connexion.css" rel="stylesheet" media="all"/>
+        <link type="text/css" href="../Css/inscriptionNew.css" rel="stylesheet" media="all"/>
+        <link type="text/css" href="../Css/connexionNew.css" rel="stylesheet" media="all"/>
     </head>
     <body>
-        
-        <div id="conteneur"> 
+    
+    <div class="containerTitrePrincipale">
+        <div class="photoRond">
+            <img src="../Img/rond.png">
+        </div>
+        <div>
+            <h1>Bienvenue sur AsciiGram !</h1>
+        </div>
+        <div class="photoRond droite" >
+            <img src="../Img/rond.png">
+        </div>
+    </div>
 
-            <div id="formulaire">
-    
-                <form action="connexion.html" method="post">
-    
-                    <fieldset>
+    <div id="bigConteneur">
+
+        <div id="conteneurConnexion"> 
+
+            <div class="containerFormulaire">
+
+                <form action="inscription.html" method="post">
+
+                    <!-- Titre du fieldset --> 
+                    <legend>Connexion</legend> 
+        
+                    <div class="champsFormulaire">
                         
-                        <!-- Titre du fieldset -->
-                        <legend>Connexion</legend>  
-    
-                        <label for="pseudo">Pseudo :</label>
-                        <br/> 
-                        <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Romain63" size="30" maxlength="10" />
-                        <br /> <br/> 
-                        <label for="pass">Mot de passe :</label>
-                        <br/>
-                        <input type="password" name="pass" id="pass" />
-                    
-                    </fieldset>
-    
-                    <div class="button">
-                        <button type="submit">Se connecter</button>
+                        <div class="petitContainer">
+                        <label for="pseudo">pseudo</label>
+                        <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" size="30" maxlength="10" />
+                        </div>
+        
+                        <div class="petitContainer">
+                        <label for="pass">mot de passe</label>
+                        <input type="password" placeholder="Mot de passe" name="pass" id="pass" />
+                        </div>
+        
+                        <div class="petitContainer">
+                            <button class="button" type="submit">Se connecter</button>
+                        </div>
                     </div>
-    
+        
                 </form>
-    
+
             </div>
+
+            <div class="containerBoutonRetour">
+
+                <div class="PremierContainerlienPourRetour">
+
+                    <div class="DeuxiemeContainerlienPourRetour">
+                        <a href="inscription.html">S'inscrire</a> 
+                    </div>
+
+                </div>
+
+                <div class="PremierContainerlienPourRetour">
+
+                    <div class="DeuxiemeContainerlienPourRetour droite">
+                        <a href="#">Mot de passe oublié ?</a> 
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div> 
+    
+    <script src="server.js">
+        
+    </script>
 
     </body>
 </html>
+
+

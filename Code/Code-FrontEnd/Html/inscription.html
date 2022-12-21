@@ -5,51 +5,87 @@
         <title>
             AsciiGram
         </title>
-        <link type="text/css" href="../Css/InscriptionEtConnexion.css" rel="stylesheet" media="all"/>
+        <link type="text/css" href="../Css/inscriptionNew.css" rel="stylesheet" media="all"/>
     </head>
     <body>
+    
+    <div class="containerTitrePrincipale">
+        <div class="photoRond">
+            <img src="../Img/rond.png">
+        </div>
+        <div>
+            <h1>Bienvenue sur AsciiGram !</h1>
+        </div>
+        <div class="photoRond droite" >
+            <img src="../Img/rond.png">
+        </div>
+    </div>
 
-    <div id="conteneur"> 
+    <div id="bigConteneur">
 
-        <div id="formulaire">
+        <div id="conteneur"> 
 
-            <form action="inscription.html" method="post">
+            <div id="formulaire">
 
-                <fieldset>
-                    
+                <form action="inscription.html" method="post">
+
                     <!-- Titre du fieldset --> 
                     <legend>Inscription</legend> 
 
-                    <label for="pseudo">Pseudo :</label>
-                    <br/> 
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Romain63" size="30" maxlength="10" />
-                    <br /> <br/> 
-                    <label for="pass">Mot de passe :</label>
-                    <br/>
-                    <input type="password" name="pass" id="pass" />
-                    <br /> <br/>
-                    <label for="email">Adresse mail :</label>
-                    <br/>
-                    <input type="email" name="email" id="email" placeholder="Ex : bidule@gmail.com"/>
-                    <br /> <br/>
-                    <label for="numTel">Numéro de Téléphone :</label>
-                    <input type="tel" name="numTel" id="numTel" placeholder="Ex : 07 78 78 41 34"/>
-                    <br/> 
-                </fieldset>
+                    <div class="champsFormulaire">
+                        
+                        <div class="petitContainer">
+                        <label for="pseudo">pseudo</label>
+                        <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" size="30" maxlength="10" />
+                        </div>
 
-                <div class="button">
-                    <button type="submit">Envoyer</button>
+                        <div class="petitContainer">
+                        <label for="pass">mot de passe</label>
+                        <input type="password" placeholder="Mot de passe" name="pass" id="pass" />
+                        </div>
+
+                        <div class="petitContainer">
+                        <label for="email">adresse mail</label>
+                        <input type="email" name="email" id="email" placeholder="Mail"/>
+                        </div>
+                        
+                        <div class="petitContainer">
+                        <label for="numTel">numéro de téléphone</label>
+                        <input type="tel" name="numTel" id="numTel" placeholder="Numéro de tel"/>
+                        </div>
+
+                        <div class="petitContainer">
+                            <button class="button" type="submit">Se connecter</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div id="inscription">
+
+                <div class="inscriptionContainer">
+
+                    <div class="inscriptionTitre">
+                        <h2> Connectez vous </h2>
+                    </div>
+
+                    <div class="inscriptionParagraphe">
+                        <p> Vous possèdez déjà un compte ? </p>
+                    </div>
+
+                    <div class="inscriptionLien">
+                        <a href="connexion.html">Se connecter</a> 
+                    </div>
+
                 </div>
 
-            </form>
+            </div>
 
-        </div>
+        </div>  
 
-        <div id="connexion">
-            <a  href="connexion.html">Vous possèdez déjà un compte ? Cliquez içi</a> 
-        </div>
-
-    </div>   
+    </div> 
     
     <script src="server.js">
         
@@ -58,4 +94,3 @@
     </body>
 </html>
 
-<!-- https://www.jotform.com/build/222862087740055 Bouton perso-->

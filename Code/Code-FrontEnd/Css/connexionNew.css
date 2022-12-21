@@ -1,0 +1,57 @@
+#conteneurConnexion{
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    height: 450px;
+    box-shadow: 1px 1px 12px #555;
+    background-color: white;
+}
+
+.containerFormulaire{
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.containerBoutonRetour{
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+}   
+
+.containerBoutonRetour a{
+    text-decoration-line: none;
+    font-size: 1.15em;
+    color: black;
+}
+
+.PremierContainerlienPourRetour{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.DeuxiemeContainerlienPourRetour{
+    height: 80%;
+    width: 65%;
+}
+
+.droite{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.DeuxiemeContainerlienPourRetour a:hover{
+    color: orange;
+}
+
+input{
+    background-color: rgba(243, 243, 243, 0.879);
+}

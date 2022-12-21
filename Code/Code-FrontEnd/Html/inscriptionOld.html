@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            AsciiGram
+        </title>
+        <link type="text/css" href="../Css/InscriptionEtConnexion.css" rel="stylesheet" media="all"/>
+    </head>
+    <body>
+
+    <div id="conteneur"> 
+
+        <div id="formulaire">
+
+            <form action="inscription.html" method="post">
+
+                <fieldset>
+                    
+                    <!-- Titre du fieldset --> 
+                    <legend>Inscription</legend> 
+
+                    <label for="pseudo">Pseudo :</label>
+                    <br/> 
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Romain63" size="30" maxlength="10" />
+                    <br /> <br/> 
+                    <label for="pass">Mot de passe :</label>
+                    <br/>
+                    <input type="password" name="pass" id="pass" />
+                    <br /> <br/>
+                    <label for="email">Adresse mail :</label>
+                    <br/>
+                    <input type="email" name="email" id="email" placeholder="Ex : bidule@gmail.com"/>
+                    <br /> <br/>
+                    <label for="numTel">Numéro de Téléphone :</label>
+                    <input type="tel" name="numTel" id="numTel" placeholder="Ex : 07 78 78 41 34"/>
+                    <br/> 
+                </fieldset>
+
+                <div class="button">
+                    <button type="submit">Envoyer</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div id="connexion">
+            <a  href="connexion.html">Vous possèdez déjà un compte ? Cliquez içi</a> 
+        </div>
+
+    </div>   
+    
+    <script src="server.js">
+        
+    </script>
+
+    </body>
+</html>
+
+<!-- https://www.jotform.com/build/222862087740055 Bouton perso-->

@@ -17,6 +17,7 @@ const { TimeoutError } = require('sequelize');
 const onehour= 1000*60*60;
 let nom;
 var session;
+let idUser=1;
 
 
 // variable pour connexion à la base de donnée
@@ -96,11 +97,11 @@ serveur.post('/inscription.html', function(req, res) {
          return res.status(400).send("<h1> Erreur : veuillez renseigner un mot de passe et un nom d'utilisater ! <h1>");
     }
 
-    let idUser=1;
-
     let requeteAddUser = "INSERT INTO user VALUES('" + idUser + "', '" + pseudo + "' , '" + passwd + "', '" + email + "', '"  + numtel + "');";
 
     insertUser(requeteAddUser);
+
+    idUser = idUser + 1;
 });
 
 
