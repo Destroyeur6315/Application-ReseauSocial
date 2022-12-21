@@ -38,7 +38,6 @@ var generate_key = function() {
 createtable();
 
 ////////// Middleware \\\\\\\\\\
-
 // Utilise le module de parsing
 serveur.use(express.json());
 serveur.use(bodyParser.urlencoded({ extended: true }));
@@ -114,6 +113,10 @@ serveur.post('/connexion.html', async function(req, res, next){
 
     const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
     
+    // transforme rows en json
+    var test = JSON.stringify(rows);
+    var json = JSON.parse(test);
+
     // gérer si la requête ne retourne rien (pseudo ou mot de passe incorrecte)
     try{
         session=req.session;
@@ -147,6 +150,8 @@ serveur.listen(8080, function() {
     console.log('Serveur en écoute à l\'adresse suivant : http://localhost:8080/ ...');
 });
 
+
+////////// Fonction pour bdd \\\\\\\\\\
 function publication(donne){
     var requete_sql = '\
   INSERT INTO publication (nomcreateur,contenu,dateecriture)'+
