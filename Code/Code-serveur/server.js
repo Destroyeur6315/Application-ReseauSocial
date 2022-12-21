@@ -60,7 +60,7 @@ serveur.use(cookieParser());
 ////////// Définiton des routes \\\\\\\\\\
 // Méthode HTTP -> GET
 serveur.get('/',(req,res)=>{
-    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscription.html'))
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/inscriptionNew.html'))
 });
 
 serveur.get('/deconnection',(req,res) => {
@@ -70,15 +70,15 @@ serveur.get('/deconnection',(req,res) => {
 
 serveur.get('/connexion.html',function(req,res){
     session=req.session;
-    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexion.html'))
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/connexionNew.html'))
 });
 
 serveur.get('/publiformulaire.html',function(req,res){
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/publiformulaire.html'))
 });
 
-serveur.get('/romainProfil.html', function(req, res){
-    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/romainProfil.html'))
+serveur.get('/accueil.html', function(req, res){
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/accueil.html'))
 });
 
 serveur.get('/romainProfildonne', function(req, res){
@@ -106,33 +106,33 @@ serveur.post('/inscription.html', function(req, res) {
 
 
 serveur.post('/connexion.html', async function(req, res, next){
+
     pseudo=req.body.pseudo;
     motdepasse=req.body.pass;
 
     const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
 
     const [rows, fields] = await con.execute('SELECT * FROM user WHERE nom = ? AND motdepasse = ?', [pseudo, motdepasse]);
+    
+    // gérer si la requête ne retourne rien (pseudo ou mot de passe incorrecte)
+    try{
+        session=req.session;
+        session.loggedin=true;
+        session.userid = await json[0].id;
+        session.userpseudo = await json[0].nom;
+        session.userMotDepasse = await json[0].motDePasse;
+        session.email = json[0].email;
+        session.numero = json[0].numTelephone;
 
-    // transformer le résultat de la requête en json
-    var test = JSON.stringify(rows);
-    var json = JSON.parse(test);
+        console.log(session);
 
-    nom = await json[0].nom;
+        // redirige vers la page d'accueil
+        res.redirect('http://localhost:8080/accueil.html');
 
-    console.log(nom);
+    }catch(error){
+        res.send("<h1> Erreur mot de passe incorrecte </h1>");
+    }
 
-    session=req.session;
-    session.loggedin=true;
-    session.userid = await json[0].id;
-    session.userpseudo = await json[0].nom;
-    session.userMotDepasse = await json[0].motDePasse;
-    session.email = json[0].email;
-    session.numero = json[0].numTelephone;
-
-    console.log(session);
-
-    // redirige vers la page d'accueil
-    res.redirect('http://localhost:8080/romainProfil.html');
 });
 
 serveur.post('/publiformulaire.html', function(req, res) {
