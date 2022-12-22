@@ -5,3 +5,6 @@
 # Les middlewares
 -> Chaque couche de transformation est appelée un middleware – une fonction intermédiaire entre la requête et la réponse
 -> LE but : Elles ajoutent des capacités de compréhension de la requête
+
+# API
+-> utiliser API pour que notre front puisse accéder aux données de notre back
