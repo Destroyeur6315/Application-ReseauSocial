@@ -146,6 +146,7 @@ nav{
 
 .Description_texte{
     flex: 3;
+    min-height: 125px;
     background-color: purple;
 }
 
@@ -165,7 +166,7 @@ nav{
 
 .profil_nombre_publication{
     flex: 3;
-    background-color: cadetblue;
+    background-color: red;
     display: flex;
     flex-direction: row;
 }
@@ -175,6 +176,7 @@ nav{
     background-color: coral;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .Description_bouton img{
@@ -192,9 +194,8 @@ nav{
 }
 
 .publication_utilisateur{
-    background-color: blanchedalmond;
+    background-color: darkmagenta;
     width: 95%;
-    height: 80%;
     display: flex;
     flex-wrap: wrap;
 }
