@@ -83,6 +83,23 @@ nav{
     padding: 1em;
 }
 
+input:focus{
+    outline: none;
+}
+
+input {
+    height: 3em;
+    width: 400px;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1em;
+    border: 1px black solid;
+    background-color: #F5F7F9;
+}
+
 
 /***** partie droite *****/
 
