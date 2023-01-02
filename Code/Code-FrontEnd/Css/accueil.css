@@ -83,11 +83,18 @@ nav{
     padding: 1em;
 }
 
-input:focus{
+#recherche{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 26%;
+}
+
+.motPourRecherche:focus{
     outline: none;
 }
 
-input {
+.motPourRecherche {
     height: 3em;
     width: 400px;
     border-radius: 30px;
@@ -100,6 +107,19 @@ input {
     background-color: #F5F7F9;
 }
 
+.validerRecherche img{
+    height: 40px;
+    width: 40px;
+}
+
+.validerRecherche:hover{
+    border-bottom: 1px solid black;
+}
+
+.validerRecherche{
+    border: none;
+    background-color: white;
+}
 
 /***** partie droite *****/
 
