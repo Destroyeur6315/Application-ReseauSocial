@@ -80,7 +80,7 @@ serveur.get('/accueil.html', function(req, res){
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/accueil.html'))
 });
 
-serveur.get('/romainProfildonne', function(req, res){
+serveur.get('/profildonnees', function(req, res){
     res.status(200).send(session);
 });
 

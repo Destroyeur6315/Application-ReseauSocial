@@ -157,14 +157,25 @@
                     <div class="Description">
                         
                         <div class="Description_texte">
-                                <p>
-                               </p> 
+
+                               <div class="containerPetitDescription_texte">
+
+                                    <div class="titreDescription">
+                                       <p>Description</p>
+                                    </div>
+
+                                    <div class="paragrapheDescription">
+                                        <p>Clermont Ferrand/ 19 ans/ Développeur Junior Chez CGI</p>
+                                    </div>
+
+                               </div>
+                               
                         </div>
 
                         <div class="Description_bouton">
 
                             <div class="profil_nombre_contact">
-                                <img src="../Img/publication.png" alt="Bouton_photo" id="photo_description">
+                                <i class="fa-solid fa-image"></i>
                                 <p>10</p>
                             </div>
 
@@ -172,9 +183,9 @@
                             </div>
 
                             <div class="modification_profil">
-                                <img src="../Img/parametres-cog.png" alt="Bouton_photo" id="photo_description">
-                                <img src="../Img/plume.png" alt="Bouton_photo" id="photo_description">
-                                <img src="../Img/ajouter-une-image.png" alt="Bouton_photo" id="photo_description">    
+                                <a href=""> <i class="fa-solid fa-plus"></i></a>
+                                <a href=""> <i class="fa-solid fa-pen"></i></a>
+                                <a href=""> <i class="fa-solid fa-gear"></i></a>   
                             </div>
 
                            
@@ -222,7 +233,7 @@
             const xhr = new XMLHttpRequest();
             
              // Ouvrir une requête HTTP GET vers l'URL spécifiée
-            xhr.open('GET', '/romainProfildonne');
+            xhr.open('GET', '/profildonnees');
 
             // Définir le type de données attendu dans la réponse
             xhr.responseType = 'json';

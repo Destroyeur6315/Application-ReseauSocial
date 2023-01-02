@@ -95,22 +95,21 @@ nav{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    background-color: red;
     border-radius: 2em;
     padding: 1em;
     margin: 1em;
     height: 100%;
+    border: 2px black solid;
+    background-color: white ;
 }
 
 .profil{
-    background-color: blue;
     display: flex;
     flex-direction: row;
     flex: 0.8;
 }
 
 .container_profil_name_metier{
-    background-color: aqua;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -121,7 +120,6 @@ nav{
 .profil_name_metier{
     width: 90%;
     height: 90%;
-    background-color: beige;
 }
 
 .profil_name_metier p{
@@ -138,45 +136,70 @@ nav{
 }
 
 .Description{
-    background-color: green;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .Description_texte{
-    flex: 3;
+    flex: 2;
     min-height: 125px;
-    background-color: purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerPetitDescription_texte{
+    height: 80%;
+    width: 85%;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.titreDescription{
+    height: 35%;
+    display: flex;
+    margin-left: 20px;
+}
+
+.titreDescription p{
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+.paragrapheDescription{
+    height: 65% ;
+    margin-left: 5px;
 }
 
 .Description_bouton{
     flex: 1;
-    background-color: orange;
     display: flex;
     flex-direction: row;
 }
 
 .profil_nombre_contact{
     flex: 1;
-    background-color: rebeccapurple;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .profil_nombre_publication{
-    flex: 3;
-    background-color: red;
+    flex: 4;
     display: flex;
     flex-direction: row;
 }
 
 .modification_profil{
     flex: 1;
-    background-color: coral;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .Description_bouton img{
@@ -185,16 +208,17 @@ nav{
 }
 
 .publication_profil{
-    background-color: yellow;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px black solid;
+    background-color: gray;
+    border-radius: 15px;
 }
 
 .publication_utilisateur{
-    background-color: darkmagenta;
     width: 95%;
     display: flex;
     flex-wrap: wrap;
@@ -204,3 +228,14 @@ nav{
     width: 10em;
     height: 10em;
 }
+
+.profil_nombre_contact i{
+    font-size: 1.8em;
+}
+
+.modification_profil i{
+    font-size: 1.8em;
+    color: black;
+}
+
+
