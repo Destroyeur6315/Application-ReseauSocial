@@ -84,6 +84,20 @@ serveur.get('/profildonnees', function(req, res){
     res.status(200).send(session);
 });
 
+serveur.get('/publication', async function(req, res){
+    const con = await mysql.createConnection({ host: nomHost,   user: nomUser,   password: leMDP,   database : laDatabase, Promise: bluebird  });
+
+    const [rows, fields] = await con.execute('SELECT * FROM publication');
+    
+    // transforme rows en json
+    var test = JSON.stringify(rows);
+    var json = JSON.parse(test);
+
+    console.log(json);
+
+    res.status(200).send(json);
+});
+
 // Méthode HTTP -> POST
 serveur.post('/inscription.html', function(req, res) {
     pseudo=req.body.pseudo;

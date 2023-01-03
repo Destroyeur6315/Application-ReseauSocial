@@ -113,7 +113,9 @@ nav{
 }
 
 .validerRecherche:hover{
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    border-radius: 35px;
+    background-color: #2BFF7B;
 }
 
 .validerRecherche{

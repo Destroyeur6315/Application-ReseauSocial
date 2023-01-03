@@ -54,70 +54,7 @@
 
                     <div class="message_interaction">
                         
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-
-                        <div class="onglets">
-
-                            <i class="fa-regular fa-thumbs-up"></i>
-                            <i class="fa-solid fa-message"></i>
-
-                        </div>
-
-                    </div>                  
-                    
-                </div>
-
-                <div class="publication">
-
-                    <div class="profil">
-                        <img src="../Img/profil.jpg" alt="photo_de_profil" id="profil">
-                    </div>
-
-                    <div class="message_interaction">
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-
-                        <div class="onglets">
-
-                            <i class="fa-regular fa-thumbs-up"></i>
-                            <i class="fa-solid fa-message"></i>
-
-                        </div>
-
-                    </div>                  
-                    
-                </div>
-
-                <div class="publication">
-
-                    <div class="profil">
-                        <img src="../Img/profil.jpg" alt="photo_de_profil" id="profil">
-                    </div>
-
-                    <div class="message_interaction">
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
-
-                        <div class="onglets">
-
-                            <i class="fa-regular fa-thumbs-up"></i>
-                            <i class="fa-solid fa-message"></i>
-
-                        </div>
-
-                    </div>                  
-                    
-                </div>
-
-                <div class="publication">
-
-                    <div class="profil">
-                        <img src="../Img/profil.jpg" alt="photo_de_profil" id="profil">
-                    </div>
-
-                    <div class="message_interaction">
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
+                        <p id="contenuPublication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
 
                         <div class="onglets">
 
@@ -226,6 +163,7 @@
     <script>
 
         const monTexte = document.getElementById('name');
+        const contenuPublication = document.getElementById('contenuPublication');
 
         function getData() {
 
@@ -258,7 +196,40 @@
                     console.error(xhr.statusText);
                 }
             };
+
+            const xhr2 = new XMLHttpRequest();
+            
+            // Ouvrir une requête HTTP GET vers l'URL spécifiée
+            xhr2.open('GET', '/publication');
+
+            // Définir le type de données attendu dans la réponse
+            xhr2.responseType = 'json';
+
+            // Envoyer la requête
+            xhr2.send();
+
+            xhr2.onload = function(){
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    // Récupérer les données JSON de la réponse
+                    const data = xhr2.response;
+
+                    console.log('data = ' + data); // type Object
+                    console.log('la taille est' + data.length);
+
+                    contenuPublication.innerHTML = data[0].contenu;
+                    console.log("test contenu = " + data[0].contenu);
+
+                    console.log(donne.contenu);
+                }
+                else {
+                    // Afficher une erreur en cas de problème avec la requête
+                    console.error(xhr.statusText);
+                }
+            };
         }
+
+
+
 
         // Appeler la fonction getData lorsque la page est chargée
         window.onload = getData;
