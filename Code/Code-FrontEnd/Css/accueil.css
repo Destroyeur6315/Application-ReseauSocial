@@ -23,7 +23,7 @@ nav{
 #onglets a{
     color: black;
     padding: 0.2em;
-    font-size: 2.2em;
+    font-size: 2em;
 }
 
 #onglets{
@@ -50,18 +50,32 @@ nav{
 
 .publication{
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 2em;
     padding: 1em;
     margin: 1em;
+    border: 1px solid black;
+    height: 700px;
 }
 
 .publication .profil img{
-    height: 5em;
-    width: 5em;
-    padding-top: 10%;
+    height: 3em;
+    width: 3em;
+}
+
+.imageProfil{
+    width: 7%;
+}
+
+.imagePublication{
+    width: 100%;
+    height: 70%;
+}
+
+.imagePublication img{
+    height: 95%;
+    width: 100%;
 }
 
 .message_interaction{
@@ -81,13 +95,15 @@ nav{
 
 .profil{
     padding: 1em;
+    display: flex;
+    flex-direction: row;
 }
 
 #recherche{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 26%;
+    width: 28%;
 }
 
 .motPourRecherche:focus{
@@ -108,8 +124,8 @@ nav{
 }
 
 .validerRecherche img{
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
 }
 
 .validerRecherche:hover{

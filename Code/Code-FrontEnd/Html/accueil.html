@@ -44,17 +44,27 @@
 
         <div id="container">
 
+            <!-- Partie gauche : publication -->
+
             <div id="container_publication">
 
                 <div class="publication">
 
                     <div class="profil">
-                        <img src="../Img/profil.jpg" alt="photo_de_profil" id="profil">
+
+                        <div class="imageProfil">
+                            <img src="../Img/profil.jpg" alt="photo_de_profil" id="profil">
+                        </div>
+
+                        <h4>Romain Fillot</h4>
+
+                    </div>
+
+                    <div class="imagePublication">
+                        <img src="../Img/javascriptvsphp.png" alt="photo_publication" >
                     </div>
 
                     <div class="message_interaction">
-                        
-                        <p id="contenuPublication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
 
                         <div class="onglets">
 
@@ -62,12 +72,16 @@
                             <i class="fa-solid fa-message"></i>
 
                         </div>
+                        
+                        <p id="contenuPublication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error alias hic quidem. Consequuntur id sint enim ut, repudiandae rerum recusandae dolore inventore, esse, asperiores molestias aliquid! Eum corporis architecto aliquid?</p>
 
                     </div>                  
                     
                 </div>
 
             </div>
+
+            <!-- Partie droite : profil -->
     
             <div class="container_profil">
                 
@@ -227,9 +241,6 @@
                 }
             };
         }
-
-
-
 
         // Appeler la fonction getData lorsque la page est chargée
         window.onload = getData;
