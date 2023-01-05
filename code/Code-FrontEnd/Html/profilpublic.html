@@ -1,0 +1,41 @@
+<script>
+
+    const monTexte = document.getElementById('name');
+
+    function getData() {
+
+        // Créer une nouvelle instance de l'objet XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+        
+         // Ouvrir une requête HTTP GET vers l'URL spécifiée
+        xhr.open('GET', '/profilpublicdata');
+
+        // Définir le type de données attendu dans la réponse
+        xhr.responseType = 'json';
+
+        // Envoyer la requête
+        xhr.send();
+
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                // Récupérer les données JSON de la réponse
+                const data = xhr.response;
+
+                console.log('data = ' + data); // type Object
+                console.log("test innerTHML" + data["userpseudo"]);  // récupérer la valeur dont la clé vaut "nom"
+
+                monTexte.innerHTML =  data["userpseudo"]; // modification du front avec la données
+                console.log(monTexte);
+
+            }
+            else {
+                // Afficher une erreur en cas de problème avec la requête
+                console.error(xhr.statusText);
+            }
+        };
+    }
+
+    // Appeler la fonction getData lorsque la page est chargée
+    window.onload = getData;
+
+</script>
