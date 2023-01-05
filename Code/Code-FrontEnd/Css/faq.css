@@ -1,43 +1,42 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: rgba(238, 238, 238, 0.914);
-}
-
-/* nav */
-
-nav{
+#recherche2{
+    width: 28%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    padding: 1em;
-    top: 0;
-    background-color: #fff;
-    margin: 0;
-    box-shadow: 12px 1px 5px grey;
-    color: black;
+    height: 50px;
 }
 
-#onglets a{
-    color: black;
-    padding: 0.2em;
-    font-size: 2.2em;
+.validerRecherche2 img{
+    height: 35px;
+    width: 35px;
 }
 
-#onglets{
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+.motPourRecherche2{
+    width: 75%;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1em;
+    border: 1px black solid;
+    background-color: #F5F7F9;
 }
 
-#container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.validerRecherche2:hover{
+    border: 1px solid black;
+    border-radius: 35px;
+    background-color: #2BFF7B;
 }
+
+.validerRecherche2{
+    border: none;
+    background-color: white;
+}
+
+
 /*partie gauche*/
+
 #filter{
     width: 30%;
     padding: 1em;

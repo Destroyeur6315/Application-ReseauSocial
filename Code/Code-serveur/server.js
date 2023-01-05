@@ -10,6 +10,7 @@ var crypto = require('crypto');
 const console = require('console');
 const { time } = require('console');
 const { TimeoutError } = require('sequelize');
+const { send } = require('process');
 //const { Server } = require('http');
 
 
@@ -96,6 +97,10 @@ serveur.get('/publication', async function(req, res){
     console.log(json);
 
     res.status(200).send(json);
+});
+
+serveur.get('/faq', function(req, res){
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/faq.html'))
 });
 
 // Méthode HTTP -> POST
