@@ -13,7 +13,7 @@
 
         <div id="formulaire">
 
-            <form action="publiformulaire.html" method="post">
+            <form action="publiformulaire.html" method="post" enctype="multipart/form-data">
 
                 <fieldset>
                     
@@ -23,7 +23,9 @@
                     <label for="name">nom :</label>
                     <br/> 
                     <input type="text" name="name" id="name" placeholder="Ex : Romain" size="30" maxlength="10" />
-                    <br /> <br/> 
+                    <br/>
+                    <input type="file" name="image" multiple/>
+                    <br/> <br/> 
                     <label for="contenu">Contenu</label>
                     <br/>
                     <input type="text" name="contenu" id="pass" />
