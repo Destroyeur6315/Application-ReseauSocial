@@ -9,6 +9,8 @@ var crypto = require('crypto');
 const { Server } = require('http');
 const { response } = require('express');
 let url = document.URL; 
+const imageController= require('../image-controller');
+
 // var connexionBDD = require('./connection');
 
 // Definition de variable
@@ -154,6 +156,7 @@ serveur.post('/publiformulaire.html', function(req, res) {
     contenu = req.body.contenu;
     
     publication(req,nomuser,contenu);
+    imageController.storeImage;
 });  
 
 // lancer notre serveur
