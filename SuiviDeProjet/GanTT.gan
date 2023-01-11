@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="SAE 3.01" company="" webLink="http://" view-date="2022-09-05" view-index="0" gantt-divider-location="391" resource-divider-location="300" version="3.2.3230" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="SAE 3.01" company="" webLink="http://" view-date="2022-10-31" view-index="0" gantt-divider-location="423" resource-divider-location="300" version="3.2.3230" locale="fr_FR">
     <description/>
     <view zooming-state="default:6" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="213" order="0"/>
-        <field id="tpd4" name="Date de début" width="80" order="1"/>
-        <field id="tpd5" name="Date de fin" width="82" order="2"/>
+        <field id="tpd3" name="Nom" width="231" order="0"/>
+        <field id="tpd4" name="Date de début" width="87" order="1"/>
+        <field id="tpd5" name="Date de fin" width="89" order="2"/>
         <option id="filter.completedTasks" value="false"/>
     </view>
     <view id="resource-table">
@@ -161,132 +161,152 @@
             <depend id="1" type="2" difference="0" hardness="Strong"/>
             <depend id="2" type="2" difference="0" hardness="Strong"/>
             <depend id="3" type="2" difference="0" hardness="Strong"/>
-            <depend id="4" type="2" difference="0" hardness="Strong"/>
             <depend id="5" type="2" difference="0" hardness="Strong"/>
             <depend id="12" type="2" difference="0" hardness="Strong"/>
             <depend id="15" type="2" difference="0" hardness="Strong"/>
             <depend id="17" type="2" difference="0" hardness="Strong"/>
-            <depend id="18" type="2" difference="0" hardness="Strong"/>
-            <depend id="19" type="2" difference="0" hardness="Strong"/>
+            <depend id="34" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="1" name="A2" color="#8cb6ce" meeting="false" start="2022-09-20" duration="3" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true"/>
-        <task id="2" name="A3" color="#8cb6ce" meeting="false" start="2022-09-20" duration="3" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true"/>
-        <task id="38" name="A4" color="#8cb6ce" meeting="false" start="2022-09-20" duration="3" complete="0" thirdDate="2022-09-05" thirdDate-constraint="0" expand="true"/>
-        <task id="3" name="A5" color="#8cb6ce" meeting="false" start="2022-09-20" duration="4" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true"/>
-        <task id="4" name="A6" color="#8cb6ce" meeting="false" start="2022-09-20" duration="2" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
-            <depend id="21" type="2" difference="0" hardness="Strong"/>
-            <depend id="22" type="2" difference="0" hardness="Strong"/>
+        <task id="2" name="A3" color="#8cb6ce" meeting="false" start="2022-09-20" duration="3" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
             <depend id="23" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="38" name="A4" color="#8cb6ce" meeting="false" start="2022-09-20" duration="4" complete="0" thirdDate="2022-09-05" thirdDate-constraint="0" expand="true"/>
+        <task id="3" name="A5" color="#8cb6ce" meeting="false" start="2022-09-20" duration="4" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="5" name="B1" color="#8cb6ce" meeting="false" start="2022-09-20" duration="1" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="6" name="B2" color="#8cb6ce" meeting="false" start="2022-09-21" duration="1" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
             <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="7" name="B3" color="#8cb6ce" meeting="false" start="2022-09-22" duration="2" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
             <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="8" name="B4" color="#8cb6ce" meeting="false" start="2022-09-26" duration="3" complete="0" thirdDate="2022-10-04" thirdDate-constraint="0" expand="true">
-            <depend id="9" type="2" difference="0" hardness="Strong"/>
+            <depend id="44" type="2" difference="0" hardness="Strong"/>
+            <depend id="45" type="2" difference="0" hardness="Strong"/>
+            <depend id="46" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="9" name="B5" color="#8cb6ce" meeting="false" start="2022-09-29" duration="2" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="10" type="2" difference="0" hardness="Strong"/>
-            <depend id="11" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="10" name="B6" color="#8cb6ce" meeting="false" start="2022-10-03" duration="1" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="11" name="B7" color="#8cb6ce" meeting="false" start="2022-10-03" duration="1" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
         <task id="12" name="C1" color="#8cb6ce" meeting="false" start="2022-09-20" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="13" type="2" difference="0" hardness="Strong"/>
             <depend id="14" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="13" name="C2" color="#8cb6ce" meeting="false" start="2022-09-27" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+        <task id="13" name="C2" color="#8cb6ce" meeting="false" start="2022-09-27" duration="4" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="21" type="2" difference="0" hardness="Strong"/>
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+            <depend id="26" type="2" difference="0" hardness="Strong"/>
+            <depend id="30" type="2" difference="0" hardness="Strong"/>
+            <depend id="39" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="14" name="C3" color="#8cb6ce" meeting="false" start="2022-09-27" duration="2" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="16" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="15" name="C4" color="#8cb6ce" meeting="false" start="2022-09-20" duration="7" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="16" name="C5" color="#8cb6ce" meeting="false" start="2022-09-29" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="17" name="C6" color="#8cb6ce" meeting="false" start="2022-09-20" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="18" name="C7" color="#8cb6ce" meeting="true" start="2022-09-20" duration="0" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="19" name="C8" color="#8cb6ce" meeting="false" start="2022-09-20" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="20" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="20" name="C9" color="#8cb6ce" meeting="false" start="2022-10-04" duration="1" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="22" type="2" difference="0" hardness="Strong"/>
+        <task id="15" name="C4" color="#8cb6ce" meeting="false" start="2022-09-20" duration="7" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="23" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="21" name="D1" color="#8cb6ce" meeting="false" start="2022-10-04" duration="15" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="26" type="2" difference="0" hardness="Strong"/>
-            <depend id="27" type="2" difference="0" hardness="Strong"/>
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="22" name="D2" color="#8cb6ce" meeting="false" start="2022-10-05" duration="12" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+        <task id="17" name="C5" color="#8cb6ce" meeting="false" start="2022-09-20" duration="14" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
+        <task id="19" name="C6" color="#8cb6ce" meeting="false" start="2022-09-26" duration="7" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="23" type="2" difference="0" hardness="Strong"/>
-            <depend id="25" type="2" difference="0" hardness="Strong"/>
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="23" name="D3" color="#8cb6ce" meeting="false" start="2022-10-21" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+        <task id="21" name="D1" color="#8cb6ce" meeting="false" start="2022-10-03" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="24" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="22" name="D2" color="#8cb6ce" meeting="false" start="2022-10-03" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="23" name="D3" color="#8cb6ce" meeting="false" start="2022-10-05" duration="4" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="24" type="2" difference="0" hardness="Strong"/>
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
             <depend id="28" type="2" difference="0" hardness="Strong"/>
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="24" name="D4" color="#8cb6ce" meeting="false" start="2022-10-11" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="25" name="D5" color="#8cb6ce" meeting="false" start="2022-10-25" duration="7" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="29" type="2" difference="0" hardness="Strong"/>
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
             <depend id="34" type="2" difference="0" hardness="Strong"/>
             <depend id="35" type="2" difference="0" hardness="Strong"/>
+            <depend id="41" type="2" difference="0" hardness="Strong"/>
+            <depend id="42" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="24" name="D4" color="#8cb6ce" meeting="false" start="2022-11-07" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
+        <task id="26" name="D6" color="#8cb6ce" meeting="false" start="2022-10-03" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="25" name="D5" color="#8cb6ce" meeting="false" start="2022-10-21" duration="7" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
+        <task id="27" name="D7" color="#8cb6ce" meeting="false" start="2022-09-26" duration="15" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="28" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="26" name="D6" color="#8cb6ce" meeting="false" start="2022-10-25" duration="7" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
+        <task id="28" name="D8" color="#8cb6ce" meeting="false" start="2022-10-17" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="27" name="D7" color="#8cb6ce" meeting="false" start="2022-10-25" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
+        <task id="29" name="D9" color="#8cb6ce" meeting="false" start="2022-11-04" duration="18" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="28" name="D8" color="#8cb6ce" meeting="false" start="2022-11-07" duration="10" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
+        <task id="39" name="D10" color="#8cb6ce" meeting="false" start="2022-10-03" duration="5" complete="0" thirdDate="2022-10-03" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="29" name="D9" color="#8cb6ce" meeting="false" start="2022-11-07" duration="3" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
-            <depend id="30" type="2" difference="0" hardness="Strong"/>
-            <depend id="31" type="2" difference="0" hardness="Strong"/>
-            <depend id="34" type="2" difference="0" hardness="Strong"/>
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="30" name="E1" color="#8cb6ce" meeting="false" start="2022-11-22" duration="3" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+        <task id="30" name="E1" color="#8cb6ce" meeting="false" start="2022-10-03" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
             <depend id="32" type="2" difference="0" hardness="Strong"/>
-            <depend id="33" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="31" name="E2" color="#8cb6ce" meeting="false" start="2022-11-22" duration="3" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="32" name="E3" color="#8cb6ce" meeting="false" start="2022-11-25" duration="2" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="33" name="E4" color="#8cb6ce" meeting="false" start="2022-11-25" duration="2" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="34" name="E5" color="#8cb6ce" meeting="false" start="2022-11-22" duration="1" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
-        <task id="35" name="E6" color="#8cb6ce" meeting="false" start="2022-11-22" duration="1" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true"/>
+        <task id="31" name="E2" color="#8cb6ce" meeting="false" start="2022-10-25" duration="4" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="32" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="32" name="E3" color="#8cb6ce" meeting="false" start="2022-10-31" duration="4" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="33" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="33" name="E4" color="#8cb6ce" meeting="false" start="2022-11-07" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="34" name="E5" color="#8cb6ce" meeting="false" start="2022-11-04" duration="9" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="35" name="E6" color="#8cb6ce" meeting="false" start="2022-11-04" duration="5" complete="0" thirdDate="2022-09-08" thirdDate-constraint="0" expand="true">
+            <depend id="40" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="40" name="E7" color="#8cb6ce" meeting="false" start="2022-11-14" duration="10" complete="0" thirdDate="2022-11-07" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="41" name="E8" color="#8cb6ce" meeting="false" start="2022-11-04" duration="9" complete="0" thirdDate="2022-11-07" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="42" name="E9" color="#8cb6ce" meeting="false" start="2022-11-04" duration="14" complete="0" thirdDate="2022-10-31" thirdDate-constraint="0" expand="true">
+            <depend id="43" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="43" name="E10" color="#8cb6ce" meeting="false" start="2022-11-25" duration="5" complete="0" thirdDate="2022-10-17" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="44" name="F1" color="#8cb6ce" meeting="false" start="2022-09-29" duration="11" complete="0" thirdDate="2022-10-24" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="45" name="F2" color="#8cb6ce" meeting="false" start="2022-09-29" duration="2" complete="0" thirdDate="2022-10-24" thirdDate-constraint="0" expand="true"/>
+        <task id="46" name="F3" color="#8cb6ce" meeting="false" start="2022-09-29" duration="2" complete="0" thirdDate="2022-10-24" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="47" name="F4" color="#8cb6ce" meeting="false" start="2022-12-02" duration="2" complete="0" thirdDate="2022-10-24" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Romain" function="Default:0" contacts="" phone=""/>
@@ -295,33 +315,24 @@
     </resources>
     <allocations>
         <allocation task-id="0" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="0" function="Default:0" responsible="false" load="34.0"/>
         <allocation task-id="2" resource-id="0" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="5" resource-id="0" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="8" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="11" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="14" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="17" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="20" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="1" function="Default:0" responsible="false" load="34.0"/>
         <allocation task-id="3" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="2" resource-id="1" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="5" resource-id="1" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="7" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="10" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="12" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="18" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="1" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="2" resource-id="2" function="Default:0" responsible="false" load="33.0"/>
-        <allocation task-id="4" resource-id="2" function="Default:0" responsible="false" load="33.0"/>
         <allocation task-id="5" resource-id="2" function="Default:0" responsible="false" load="34.0"/>
         <allocation task-id="6" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="9" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="13" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="16" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="19" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>

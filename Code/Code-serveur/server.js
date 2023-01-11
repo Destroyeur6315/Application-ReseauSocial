@@ -22,9 +22,9 @@ let idUser=1;
 
 // variable pour connexion à la base de donnée
 nomHost = "localhost";
-nomUser = "romainSAE";
-leMDP = "guerre";
-laDatabase = "romain_application";
+nomUser = "root";
+leMDP = "root";
+laDatabase = "bdd_sae";
 
 
 // Instancier le serveur
@@ -78,6 +78,10 @@ serveur.get('/publiformulaire.html',function(req,res){
 
 serveur.get('/accueil.html', function(req, res){
     res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/accueil.html'))
+});
+
+serveur.get("/faq.html", function(req,res){
+    res.sendFile(path.resolve(__dirname+'/../Code-FrontEnd/Html/faq.html'))
 });
 
 serveur.get('/profildonnees', function(req, res){
